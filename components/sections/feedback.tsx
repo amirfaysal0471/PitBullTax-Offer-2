@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, FileSearch, Inbox, MessageSquareText } from "lucide-react";
+import { ArrowRight, ClipboardList, FileCheck2, FileSearch } from "lucide-react";
 
 import { feedback } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
-const icons = [Inbox, FileSearch, MessageSquareText];
+const icons = [ClipboardList, FileSearch, FileCheck2];
 
 export function Feedback() {
   return (

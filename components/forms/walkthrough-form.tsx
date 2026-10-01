@@ -173,7 +173,7 @@ export function WalkthroughForm({
                     id={`${id}-comments`}
                     name="comments"
                     rows={3}
-                    placeholder="Tell us about your transcript workflow or what you'd like to see."
+                    placeholder="Tell us about the cases your team handles or what you'd like to see."
                     className={cn(fieldClass, "mt-2 h-auto py-2.5")}
                   />
                 </div>

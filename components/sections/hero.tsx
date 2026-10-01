@@ -31,7 +31,7 @@ export function Hero() {
                 {hero.primary}
                 <ArrowRight className="size-4" />
               </Link>
-              <Link href="#live-transcript" className="btn-outline-dark">
+              <Link href="#case-workflow" className="btn-outline-dark">
                 {hero.secondary}
               </Link>
             </div>

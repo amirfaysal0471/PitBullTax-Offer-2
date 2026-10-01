@@ -7,14 +7,14 @@ export const site = {
 };
 
 export const meta = {
-  title: "PitBullTax — Turn IRS transcripts into clear next steps",
+  title: "PitBullTax — Move every tax resolution case forward",
   description:
-    "Request client transcripts, understand important account activity, and keep watch for changes in one PitBullTax workflow.",
+    "Bring client intake, IRS transcripts, financial analysis, resolution options, forms, and case work together in one connected tax resolution platform.",
 };
 
 export const nav = [
   { label: "Platform", href: "#platform" },
-  { label: "Live transcript", href: "#live-transcript" },
+  { label: "Case workflow", href: "#case-workflow" },
   { label: "How it works", href: "#how-it-works" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -23,44 +23,46 @@ export const headerCta = "Book a walkthrough";
 
 export const videos = {
   id: "KY9KkFmeW8A",
-  title: "PitBullTax transcript walkthrough",
+  title: "PitBullTax platform walkthrough",
 };
 
 const walkthroughSuccess =
-  "Thank you. We received your request and will contact you to arrange your walkthrough.";
+  "Thank you. We received your request and will contact you to arrange your platform walkthrough.";
 
 export const hero = {
-  eyebrow: "IRS transcript delivery and monitoring",
-  title: "Turn IRS transcripts into clear next steps.",
-  body: "Request client transcripts, understand important account activity, and keep watch for changes in one PitBullTax workflow. Spend less time decoding IRS records and more time advising clients.",
-  primary: "Book a 30-minute walkthrough",
-  secondary: "Explore an example transcript",
+  eyebrow: "Tax resolution software for practitioners",
+  title: "Move every tax resolution case forward with one connected platform.",
+  body: "Bring client intake, IRS transcripts, financial analysis, resolution options, forms, and case work together. PitBullTax helps your team prepare the details and focus on the decisions that matter.",
+  primary: "Book a platform walkthrough",
+  secondary: "Explore the case workflow",
   visual: {
-    src: "/screens/transcripts-dashboard.webp",
-    width: 1625,
-    height: 968,
-    alt: "PitBullTax Transcripts Dashboard showing IRS tax liability by client, tax periods, earliest CSED and current resolution",
+    src: "/screens/step-by-step-workflow.jpg",
+    width: 966,
+    height: 579,
+    alt: "PitBullTax Step-by-Step Workflow case overview with client tools, case steps such as client questionnaire, power of attorney and IRS transcripts, and their status",
   },
   form: {
-    title: "See it with your workflow",
+    title: "Show me the platform",
     helper:
-      "Tell us about your practice and we will follow up to arrange a personalized walkthrough.",
-    submit: "Request my walkthrough",
+      "Tell us about your practice and we will tailor the walkthrough to your work.",
+    submit: "Request a platform walkthrough",
     note: "By submitting, you agree that PitBullTax may contact you about this request.",
     success: walkthroughSuccess,
   },
 };
 
 export const proofStrip = {
-  label: "A connected transcript workflow",
+  label: "A connected resolution workflow",
   items: [
-    { title: "Bulk requests", body: "Select clients, types, and periods together." },
-    { title: "Readable activity", body: "Review account events in context." },
-    { title: "Monitoring", body: "Follow changes in authorized accounts." },
-    { title: "Client reports", body: "Explain findings clearly." },
-    { title: "Authorization", body: "Keep access requirements in view." },
+    { title: "Client intake", body: "Gather the information needed to begin." },
+    { title: "IRS records", body: "Keep transcripts close to the case." },
+    { title: "Analysis", body: "Organize finances and possible paths." },
+    { title: "Forms", body: "Prepare documents from case information." },
+    { title: "Follow-up", body: "Keep the next steps visible." },
   ],
 };
+
+export type EventTone = "event" | "review" | "question" | "next";
 
 type TimelineEvent = {
   code: string;
@@ -68,23 +70,22 @@ type TimelineEvent = {
   date: string;
   label: string;
   amount: string;
-  tone: "act" | "review" | "payment" | "info";
+  tone: EventTone;
   detail: string;
-  action: string;
 };
 
 export const transcriptExample = {
-  title: "See the story behind each tax period.",
+  title: "See how IRS records inform the case.",
   subtitle:
-    "Explore an illustrative account transcript to see how events, dates, balances, and notices come together.",
+    "Explore an illustrative tax period, then see how account activity can become part of a broader case assessment.",
   example: "Illustrative example. No real client information.",
   scale: ["2023", "Jul 2023", "Jan 2024", "Jul 2024", "Jan 2025"],
   legend: [
-    { label: "Act now", tone: "act" },
-    { label: "Review", tone: "review" },
-    { label: "Payment", tone: "payment" },
-    { label: "Information", tone: "info" },
-  ],
+    { label: "Account event", tone: "event" },
+    { label: "Review point", tone: "review" },
+    { label: "Client question", tone: "question" },
+    { label: "Next step", tone: "next" },
+  ] satisfies { label: string; tone: EventTone }[],
   events: [
     {
       code: "TC 150",
@@ -92,10 +93,9 @@ export const transcriptExample = {
       date: "May 15, 2023",
       label: "Return filed and assessed",
       amount: "$18,420",
-      tone: "payment",
+      tone: "event",
       detail:
         "The original return posted and the tax was assessed for this period.",
-      action: "Note the date",
     },
     {
       code: "TC 806",
@@ -103,10 +103,9 @@ export const transcriptExample = {
       date: "May 15, 2023",
       label: "Withholding credit applied",
       amount: "-$6,110",
-      tone: "info",
+      tone: "event",
       detail:
         "Credits from W-2 withholding reduced the assessed balance for the period.",
-      action: "Information",
     },
     {
       code: "TC 196",
@@ -116,8 +115,7 @@ export const transcriptExample = {
       amount: "$412",
       tone: "review",
       detail:
-        "Interest was assessed on the unpaid balance for the period.",
-      action: "Review",
+        "Interest was assessed on the unpaid balance. Note it as part of the balance under review.",
     },
     {
       code: "TC 582",
@@ -127,8 +125,7 @@ export const transcriptExample = {
       amount: "$0.00",
       tone: "review",
       detail:
-        "The account shows a notice of federal tax lien for the unpaid assessment.",
-      action: "Review",
+        "The account shows a notice of federal tax lien for the unpaid assessment. Review it alongside the client’s financial picture.",
     },
     {
       code: "TC 670",
@@ -136,87 +133,85 @@ export const transcriptExample = {
       date: "Jun 03, 2024",
       label: "Subsequent payment received",
       amount: "-$1,500",
-      tone: "payment",
+      tone: "question",
       detail:
-        "A payment posted to the period and reduced the outstanding balance.",
-      action: "Payment",
+        "A payment posted to the period. Confirm the payment details with the client as part of intake.",
     },
     {
       code: "TC 971",
       pos: "86%",
       date: "Jun 10, 2024",
-      label: "Notice issued",
+      label: "Account notice identified",
       amount: "$0.00",
-      tone: "act",
+      tone: "next",
       detail:
-        "This example shows how a notice can appear alongside the account history. Review the underlying IRS record and the client’s circumstances before deciding what to do next.",
-      action: "Act now",
+        "Review the notice, confirm the underlying account activity, and consider what information is needed before choosing a resolution path.",
     },
   ] satisfies TimelineEvent[],
 };
 
 export const audience = {
-  label: "Built for the people who work with IRS transcripts every day",
+  label: "Built for the teams guiding tax resolution cases",
   items: [
     "Enrolled Agents",
     "CPAs",
     "Tax Attorneys",
-    "Resolution Firms",
-    "Tax Teams",
+    "Firm Owners",
+    "Case Staff",
   ],
 };
 
 export const comparison = {
   eyebrow: "Why teams switch",
-  title: "Go from reading codes to seeing the whole account.",
-  body: "When transcript work is spread across IRS records, PDFs, spreadsheets, and follow-up notes, it is harder to see the next step. PitBullTax brings that work together.",
+  title: "Keep the case moving without rebuilding the work.",
+  body: "When client information, IRS records, analysis, and forms live in separate places, teams repeat steps. A connected case workflow makes it easier to see what comes next.",
   manual: {
-    title: "The manual workflow",
-    badge: "Manual",
+    title: "The disconnected workflow",
+    badge: "Disconnected",
     items: [
-      "Request periods separately.",
-      "Look up transaction codes one by one.",
-      "Rebuild balances and dates outside the record.",
-      "Track follow-up in separate notes.",
+      "Collect the same facts more than once.",
+      "Switch between transcripts and spreadsheets.",
+      "Re-enter information into forms.",
+      "Track milestones in separate notes.",
     ],
   },
   focused: {
     title: "With PitBullTax",
-    badge: "Focused",
+    badge: "Connected",
     items: [
-      "Manage transcript requests in one queue.",
-      "Review organized account activity.",
-      "Watch authorized accounts for changes.",
-      "Prepare a clearer summary for the client.",
+      "Collect client information in a questionnaire.",
+      "Bring IRS records into the case.",
+      "Organize financial review and potential paths.",
+      "Prepare forms and track the next step.",
     ],
   },
 };
 
 export const platform = {
   eyebrow: "The platform",
-  title: "One workflow for every stage of transcript work.",
-  body: "Move from request to interpretation, monitoring, and a client-ready explanation.",
+  title: "The tools your resolution team uses in one place.",
+  body: "Connect the work from client intake to IRS records, analysis, forms, and follow-up.",
   cards: [
     {
-      title: "Request",
-      body: "Select clients, transcript types, and tax periods, then manage results in one queue.",
-      links: ["Bulk requests", "Scheduled requests"],
-      // Real menu labels from the PitBullTax "IRS Transcripts Delivery" sidebar.
+      title: "Intake",
+      body: "Collect client facts and documents through a guided questionnaire.",
+      links: ["Client questionnaire", "Case details"],
+      // Real menu labels from the PitBullTax client "Tools" sidebar.
       menu: {
-        title: "IRS Transcripts Delivery",
+        title: "Client Tools",
         items: [
-          "Request Transcripts",
-          "Bulk Request",
-          "Scheduled Transcripts",
-          "View Transcripts",
-          "Transcript Reports",
+          "Client Questionnaire",
+          "Case Diagnostics",
+          "Resolution Evaluation",
+          "Client Summary",
+          "IRS Transcripts Delivery",
         ],
       },
     },
     {
-      title: "Interpret",
-      body: "Review transaction codes, account events, and balances in a structured view.",
-      links: ["Transcript reports", "Account activity"],
+      title: "Transcripts",
+      body: "Request and review authorized IRS records that inform the case.",
+      links: ["Requests", "Account activity"],
       image: {
         src: "/screens/irs-tax-liability-rows.webp",
         width: 920,
@@ -225,19 +220,19 @@ export const platform = {
       },
     },
     {
-      title: "Monitor",
-      body: "Keep track of changes in enrolled, authorized accounts that need attention.",
-      links: ["Alerts", "Monitoring"],
+      title: "Analysis",
+      body: "Organize tax periods, balances, and financial information for practitioner review.",
+      links: ["Financial review", "Resolution options"],
     },
     {
-      title: "Report",
-      body: "Turn account activity into a summary your client can follow.",
-      links: ["Client summary", "Reports"],
+      title: "Forms",
+      body: "Use case information to prepare relevant IRS forms and client documents.",
+      links: ["IRS forms", "Documents"],
     },
     {
-      title: "Authorize",
-      body: "Keep the authorization steps connected to the transcript workflow.",
-      links: ["Forms 8821 and 2848"],
+      title: "Case work",
+      body: "Keep tasks, files, and communication connected to the client matter.",
+      links: ["Tasks", "Follow-up"],
     },
   ],
 };
@@ -247,80 +242,104 @@ export const offerings = {
   items: [
     {
       kicker: "01",
-      title: "Transcript Delivery & Monitoring",
-      body: "Request, review, and monitor IRS records across client engagements.",
-      points: ["Bulk requests", "Account activity", "Monitoring", "Client reports"],
+      title: "Tax Resolution",
+      body: "Prepare and manage client matters from intake through analysis, forms, and follow-up.",
+      points: ["Client questionnaire", "Financial review", "Forms", "Case workflow"],
     },
     {
       kicker: "02",
-      title: "Tax Resolution",
-      body: "Carry transcript findings into a broader case workflow.",
-      points: ["Client intake", "Case analysis", "IRS forms", "Follow-up"],
+      title: "Transcript Delivery & Monitoring",
+      body: "Request, interpret, and monitor IRS records that inform the case.",
+      points: ["Bulk requests", "Account activity", "Alerts", "Reports"],
     },
   ],
 };
 
 export const product = {
   eyebrow: "Inside the software",
-  title: "Watch the transcript workflow from request to report.",
-  body: "See how a team requests transcripts, reviews account activity, and prepares a client-facing summary in PitBullTax.",
-  videoLabel: "Watch the PitBullTax transcript walkthrough",
-  videoCaption: "Follow a sample request through the platform.",
+  title: "See a resolution case move through PitBullTax.",
+  body: "Follow an example from intake and IRS records through analysis, forms, and a client-facing case summary.",
+  videoLabel: "Watch the PitBullTax platform walkthrough",
+  videoCaption: "See the connected workflow in action.",
   shots: [
-    // TODO: replace with a sanitized "Transcript request queue" screen when available.
     {
-      src: "/screens/transcripts-request-tools.webp",
-      alt: "PitBullTax Transcripts Dashboard with the IRS Transcripts Delivery tools menu (Request Transcripts, Bulk Request, Scheduled Transcripts, Transcripts Monitoring) and Update All, Update Selected and Download All actions",
-      title: "Transcript request queue",
-      caption: "Manage client, type, period, and request status.",
+      src: "/screens/transcripts-dashboard.webp",
+      alt: "PitBullTax dashboard showing IRS tax liability by client, tax periods, earliest CSED and current resolution",
+      title: "Client intake and analysis",
+      caption: "Keep case information organized for review.",
     },
     {
       src: "/screens/account-activity-report.webp",
       alt: "PitBullTax IRS tax liability table with balances, tax periods, earliest CSED and current resolution, above Offer in Compromise filing results",
-      title: "Account activity and report",
-      caption: "Review key information before sharing a summary.",
+      title: "Forms and case progress",
+      caption: "Carry the work through the next steps.",
     },
   ],
 };
 
-export const csed = {
-  eyebrow: "Try an example",
-  title: "How long can the IRS generally collect?",
-  body: "The Collection Statute Expiration Date can depend on assessments and events that suspend the collection period. Try this simple illustration, then review the full account record for a real client.",
-  assessmentLabel: "Assessment date",
-  tollingLabel: "Tolling days",
-  resultDate: "Illustrative CSED",
-  resultRemaining: "Time remaining",
-  disclaimer:
-    "Illustration only. This result is not a determination of the actual CSED. Confirm the full IRS record and applicable suspensions.",
+export const caseJourney = {
+  eyebrow: "Case workflow",
+  title: "From client intake to a working resolution plan.",
+  body: "See how the case moves through five connected stages. Your team reviews the facts and determines the appropriate strategy.",
+  // Tool names are real labels from the PitBullTax client sidebar and workflow.
+  stages: [
+    {
+      title: "Client intake",
+      body: "Gather client facts and documents through a guided questionnaire.",
+      tools: ["Client Questionnaire", "Client Portal Activity"],
+    },
+    {
+      title: "Authorization and IRS records",
+      body: "Keep authorization steps connected and bring IRS records into the case.",
+      tools: ["Bulk 2848/8821", "E-Signature", "IRS Transcripts Delivery"],
+    },
+    {
+      title: "Financial review",
+      body: "Organize tax periods, balances, and financial information for practitioner review.",
+      tools: ["Case Diagnostics", "Client Summary"],
+    },
+    {
+      title: "Resolution options",
+      body: "Review potential paths side by side. Your team makes the professional determination.",
+      tools: ["Resolution Evaluation", "Scenario Simulator"],
+    },
+    {
+      title: "Forms and follow-up",
+      body: "Prepare relevant forms from case information and keep the next step visible.",
+      tools: ["Form 433-A / 433-A (OIC)", "Step-by-Step Workflow"],
+    },
+  ],
+  toolsLabel: "In PitBullTax",
+  footnote:
+    "Illustrative workflow. The steps and appropriate resolution options depend on the client matter.",
 };
 
 export const steps = {
   eyebrow: "How it works",
-  title: "From authorization to action in three steps.",
+  title: "See how the platform fits your practice in three steps.",
   items: [
     {
       n: "1",
-      title: "Book your walkthrough",
-      body: "Tell us how your team handles transcripts today. We will focus the session on your questions.",
+      title: "Book a walkthrough",
+      body: "Tell us about your practice focus and the cases your team handles.",
       image: "/steps/step-1-walkthrough-call.webp",
       alt: "A PitBullTax walkthrough call on a laptop",
       video: true,
     },
     {
       n: "2",
-      title: "See the workflow",
-      body: "Follow a request through account activity, monitoring, and reporting.",
+      title: "See your workflow",
+      body: "We will demonstrate the tools most relevant to your work, from intake to forms.",
       image: "/screens/step-by-step-workflow.jpg",
-      alt: "PitBullTax Step-by-Step Workflow screen showing case steps, including getting IRS transcripts and generating transcript reports, with their status",
+      alt: "PitBullTax Step-by-Step Workflow screen showing case steps, including the client questionnaire, power of attorney and IRS transcripts, with their status",
       video: false,
     },
     {
       n: "3",
-      title: "Explore the fit",
-      body: "Discuss access, training, and available next steps with the PitBullTax team.",
+      title: "Plan the next step",
+      body: "Discuss training, access, and how your team would use the platform.",
       image: "/steps/step-3-training-library.webp",
-      alt: "PitBullTax Video Tutorials library showing tax resolution software demonstrations, including how to read and analyze IRS transcripts",
+      alt: "PitBullTax Video Tutorials library showing tax resolution software demonstrations",
       video: false,
     },
   ],
@@ -350,41 +369,41 @@ export const usStates = [
 ];
 
 export const walkthrough = {
-  eyebrow: "Personalized walkthrough",
-  title: "See a clearer transcript workflow for your firm.",
-  body: "In 30 minutes, we will show how PitBullTax handles transcript requests, account activity, monitoring, and client reports. Bring the workflow you would like to improve.",
+  eyebrow: "Personalized platform walkthrough",
+  title: "See how the platform fits your practice.",
+  body: "Book a personalized 30-minute look at the tax resolution workflow. Tell us where your team spends the most time, and we will focus on the tools that matter to you.",
   agenda: [
-    { time: "01", title: "Manage requests", body: "Select clients, types, and periods in one place." },
-    { time: "02", title: "Understand activity", body: "Review account events in context." },
-    { time: "03", title: "Stay informed", body: "See how monitoring and alerts fit into your work." },
-    { time: "04", title: "Explain findings", body: "Prepare a clearer client-facing summary." },
-    { time: "05", title: "Ask your questions", body: "See the parts of the platform relevant to your practice." },
+    { time: "01", title: "Start with client intake", body: "Gather the information your team needs." },
+    { time: "02", title: "Connect IRS records", body: "Bring transcript activity into the case." },
+    { time: "03", title: "Review the financial picture", body: "Organize balances and client information." },
+    { time: "04", title: "Prepare the work", body: "See forms, documents, and case steps together." },
+    { time: "05", title: "Ask your questions", body: "Walk through a scenario relevant to your practice." },
   ],
   form: {
-    title: "Book your walkthrough",
+    title: "Book your platform walkthrough",
     helper: "Submit your details and our team will follow up to arrange a time.",
-    submit: "Request my walkthrough",
+    submit: "Request a platform walkthrough",
     note: "By submitting this form, you agree that PitBullTax may contact you about this request.",
     success: walkthroughSuccess,
   },
 };
 
 export const feedback = {
-  eyebrow: "Practitioner feedback",
-  title: "See how practitioners put transcript information to work.",
-  body: "Teams use PitBullTax to organize transcript requests, review account activity, and communicate findings with clients. Explore the workflow in a walkthrough tailored to your practice.",
+  eyebrow: "Built for practitioners",
+  title: "Bring the pieces of a resolution case together.",
+  body: "PitBullTax helps your team work from client information and IRS records through analysis, forms, and follow-up in one platform.",
   cta: "See it for your firm",
   items: [
-    { title: "Request", body: "Bring multiple transcript requests into one organized process." },
-    { title: "Review", body: "See account information in a format your team can work through." },
-    { title: "Explain", body: "Prepare a client-ready view of the activity and next steps." },
+    { title: "Prepare", body: "Collect and organize client facts for case review." },
+    { title: "Assess", body: "Bring account and financial information into view." },
+    { title: "Act", body: "Prepare forms, documents, and the next client update." },
   ],
 };
 
 export const guidance = {
-  title: "Guidance for your team as you get started",
-  body: "A walkthrough gives your team a closer look at the transcript workflow and the training resources available through PitBullTax.",
-  cta: "Book a walkthrough",
+  title: "A guided start for your team",
+  body: "See the platform with a PitBullTax team member and review the training resources available for your practice.",
+  cta: "Book a platform walkthrough",
 };
 
 export const faq = {
@@ -392,37 +411,37 @@ export const faq = {
   title: "Questions, answered.",
   items: [
     {
-      q: "Which transcripts can I request?",
-      a: "PitBullTax supports transcript request workflows for authorized client accounts. We will show the currently available transcript types and tax periods during your walkthrough.",
+      q: "Is PitBullTax only for IRS transcripts?",
+      a: "No. The platform also supports client intake, case analysis, forms, and workflow tools for tax resolution work.",
     },
     {
-      q: "What authorization do I need?",
-      a: "The authorization depends on the client and the work you perform. The walkthrough can show how the applicable authorization steps fit into the request process.",
+      q: "How do transcripts fit into a case?",
+      a: "Authorized IRS records can help your team understand account activity and inform the case assessment. The walkthrough shows how those records appear in the platform.",
     },
     {
-      q: "How does monitoring work?",
-      a: "Authorized accounts can be enrolled in monitoring. We will demonstrate the current check schedule, alerts, and notification options.",
+      q: "Will the software choose a resolution option for me?",
+      a: "PitBullTax helps organize relevant information and potential paths. A qualified practitioner reviews the facts and makes the professional determination.",
     },
     {
-      q: "Can I review account activity in a report?",
-      a: "Yes. The platform organizes transcript information so your team can review the activity and prepare a clearer client summary.",
+      q: "Can my team prepare IRS forms?",
+      a: "The platform supports form preparation using information collected in the case. We can demonstrate the currently available forms during your walkthrough.",
     },
     {
-      q: "Does the calculator determine the final CSED?",
-      a: "No. Its result is an illustration. A practitioner must review the full account record and applicable suspensions to confirm an actual CSED.",
+      q: "Is training available?",
+      a: "Our team can explain the current training and support resources available with the platform.",
     },
     {
       q: "What happens after I request a walkthrough?",
-      a: "Our team will contact you to arrange a time and learn which part of the transcript workflow you want to see.",
+      a: "Our team will contact you to arrange a time and learn which part of the platform you want to see.",
     },
   ],
 };
 
 export const finalCta = {
-  line1: "Read less.",
-  line2: "Resolve more.",
-  body: "See a clearer IRS transcript workflow built around your firm.",
-  cta: "Book a transcript walkthrough",
+  line1: "Keep the case",
+  line2: "moving.",
+  body: "See how PitBullTax connects the tools your tax resolution team uses every day.",
+  cta: "Book a platform walkthrough",
 };
 
 export const footer = {

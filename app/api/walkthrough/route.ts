@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         ...lead,
-        page: "offer",
+        page: "offer2",
         submittedAt: new Date().toISOString(),
       }),
       signal: AbortSignal.timeout(10_000),
