@@ -3,11 +3,11 @@
 Landing page for **offer2.pitbulltax.com** (tax resolution platform),
 built with Next.js 16 (App Router), React 19 and Tailwind CSS 4.
 
-Package: `pitbulltax-offer-2` · Repo: none yet (local git only)
+Package: `pitbulltax-offer-2` · Repo: https://github.com/amirfaysal0471/PitBullTax-Offer-2
 Sister project: `../Offer-1` (offer.pitbulltax.com, IRS transcript delivery) is a separate repo.
 Offer 2 started as a copy of Offer 1; the two codebases are now independent.
 
-**Live:** not deployed yet (no GitHub repo or Vercel project connected).
+**Live:** https://pitbulltax-offer-2.vercel.app
 
 ## Getting started
 
