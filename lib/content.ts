@@ -1,5 +1,6 @@
 export const site = {
   logo: "/brand/pitbulltax-software.png",
+  logoDark: "/brand/pitbulltax-software-dark.png",
   phone: "954-748-2855",
   phoneHref: "tel:+19547482855",
   privacyHref: "https://pitbulltax.com/page/privacy-policy.html",
@@ -21,6 +22,10 @@ export const nav = [
 
 export const headerCta = "Book a walkthrough";
 
+// Red strip above the header (audience from section 04 of the handoff).
+export const topBar =
+  "For Enrolled Agents, CPAs, Tax Attorneys, and the teams guiding tax resolution cases.";
+
 export const videos = {
   id: "KY9KkFmeW8A",
   title: "PitBullTax platform walkthrough",
@@ -32,6 +37,8 @@ const walkthroughSuccess =
 export const hero = {
   eyebrow: "Tax resolution software for practitioners",
   title: "Move every tax resolution case forward with one connected platform.",
+  // Part of the title underlined with the red swoosh.
+  titleAccent: "one connected platform",
   body: "Bring client intake, IRS transcripts, financial analysis, resolution options, forms, and case work together. PitBullTax helps your team prepare the details and focus on the decisions that matter.",
   primary: "Book a platform walkthrough",
   secondary: "Explore the case workflow",

@@ -25,7 +25,7 @@ export function Video({
   return (
     <div
       className={cn(
-        "relative aspect-video overflow-hidden rounded-[4px] bg-navy-2",
+        "relative aspect-video overflow-hidden rounded-xl bg-navy-2",
         className,
       )}
     >

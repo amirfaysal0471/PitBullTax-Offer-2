@@ -17,7 +17,10 @@ export function CaseJourney() {
   const progress = (active / last) * 100;
 
   return (
-    <section id="case-workflow" className="scroll-mt-24 bg-paper py-20 lg:py-28">
+    <section
+      id="case-workflow"
+      className="scroll-mt-24 bg-paper py-20 lg:py-28"
+    >
       <div className="container-page">
         <Eyebrow>{caseJourney.eyebrow}</Eyebrow>
 
@@ -31,10 +34,10 @@ export function CaseJourney() {
         <div className="relative mt-14">
           <div
             aria-hidden="true"
-            className="absolute inset-0 translate-x-3 translate-y-3 rounded-[6px] bg-red"
+            className="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-red"
           />
 
-          <div className="relative rounded-[6px] border border-line bg-white p-6 sm:p-8 lg:p-10">
+          <div className="relative rounded-2xl border border-line bg-white p-6 sm:p-8 lg:p-10">
             {/* Stage track */}
             <div className="relative">
               <span
@@ -65,15 +68,23 @@ export function CaseJourney() {
                             "flex size-10 items-center justify-center rounded-full font-display text-[0.9375rem] font-extrabold ring-4 ring-white transition-colors",
                             current && "bg-red text-white",
                             done && "bg-ink text-white",
-                            !current && !done && "bg-paper-2 text-text-2 group-hover:bg-line",
+                            !current &&
+                              !done &&
+                              "bg-paper-2 text-text-2 group-hover:bg-line",
                           )}
                         >
-                          {done ? <Check className="size-4" strokeWidth={3} /> : i + 1}
+                          {done ? (
+                            <Check className="size-4" strokeWidth={3} />
+                          ) : (
+                            i + 1
+                          )}
                         </span>
                         <span
                           className={cn(
                             "hidden max-w-[10rem] text-[0.875rem] leading-[1.35] font-semibold md:block",
-                            current ? "text-text" : "text-text-3 group-hover:text-text-2",
+                            current
+                              ? "text-text"
+                              : "text-text-3 group-hover:text-text-2",
                           )}
                         >
                           {item.title}
@@ -102,7 +113,7 @@ export function CaseJourney() {
                 </p>
               </div>
 
-              <div className="rounded-[5px] bg-paper p-5 sm:p-6">
+              <div className="rounded-xl bg-paper p-5 sm:p-6">
                 <p className="eyebrow text-[0.6875rem] text-text-3">
                   {caseJourney.toolsLabel}
                 </p>
@@ -110,7 +121,7 @@ export function CaseJourney() {
                   {stage.tools.map((tool) => (
                     <li
                       key={tool}
-                      className="rounded-[3px] border border-line bg-white px-3 py-2 text-[0.875rem] font-medium text-text"
+                      className="rounded-full border border-line bg-white px-3.5 py-2 text-[0.875rem] font-medium text-text"
                     >
                       {tool}
                     </li>
@@ -130,7 +141,7 @@ export function CaseJourney() {
                   onClick={() => setActive((i) => Math.max(0, i - 1))}
                   disabled={active === 0}
                   aria-label="Previous stage"
-                  className="flex size-11 items-center justify-center rounded-[4px] border border-line text-text transition-colors hover:bg-paper disabled:opacity-40 disabled:hover:bg-transparent"
+                  className="flex size-11 items-center justify-center rounded-full border border-line text-text transition-colors hover:bg-paper disabled:opacity-40 disabled:hover:bg-transparent"
                 >
                   <ArrowLeft className="size-4" />
                 </button>

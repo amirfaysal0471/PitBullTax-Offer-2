@@ -139,10 +139,11 @@
   .btn-outline-dark,
   .btn-outline-light,
   .btn-ink {
-    @apply inline-flex h-12 items-center justify-center gap-2.5 rounded-[4px] px-6 text-[0.9375rem] font-semibold whitespace-nowrap transition-colors;
+    /* Offer 2 (software) uses pill buttons; Offer 1 (transcripts) keeps square ones. */
+    @apply inline-flex h-12 items-center justify-center gap-2.5 rounded-full px-7 text-[0.9375rem] font-semibold whitespace-nowrap transition-colors;
   }
   .btn-red {
-    @apply bg-red text-white hover:bg-red-dark;
+    @apply bg-red text-white shadow-[0_10px_24px_-10px_rgb(232_20_31/70%)] hover:bg-red-dark;
   }
   .btn-outline-dark {
     @apply border border-white/25 bg-transparent text-white hover:bg-white/10;
@@ -161,6 +162,20 @@
       linear-gradient(to right, rgb(255 255 255 / 4%) 1px, transparent 1px),
       linear-gradient(to bottom, rgb(255 255 255 / 4%) 1px, transparent 1px);
     background-size: 68px 68px;
+  }
+  .grid-lines-light {
+    background-image:
+      linear-gradient(to right, rgb(11 18 32 / 4%) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(11 18 32 / 4%) 1px, transparent 1px);
+    background-size: 68px 68px;
+  }
+  /* Hand-drawn red underline under a key phrase, as on the offer2 site. */
+  .swoosh {
+    padding-bottom: 0.12em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 14' preserveAspectRatio='none'%3E%3Cpath d='M3 10.5C70 3.5 190 1.5 297 7' fill='none' stroke='%23e8141f' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E")
+      bottom / 100% 0.22em no-repeat;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
   .glow-red {
     background: radial-gradient(

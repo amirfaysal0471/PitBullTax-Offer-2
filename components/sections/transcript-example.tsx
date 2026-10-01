@@ -27,13 +27,17 @@ export function TranscriptExample() {
     const list = chips.current;
     const chip = list?.children[active] as HTMLElement | undefined;
     if (!list || !chip) return;
-    list.scrollLeft = chip.offsetLeft - (list.clientWidth - chip.offsetWidth) / 2;
+    list.scrollLeft =
+      chip.offsetLeft - (list.clientWidth - chip.offsetWidth) / 2;
   }, [active]);
 
   return (
-    <section id="irs-records" className="scroll-mt-24 bg-navy pb-20 lg:pb-28">
+    <section
+      id="irs-records"
+      className="scroll-mt-24 bg-white pt-4 pb-20 lg:pb-28"
+    >
       <div className="container-page">
-        <div className="rounded-[6px] border border-line-dark bg-navy-2 p-6 sm:p-8">
+        <div className="rounded-2xl bg-navy-2 p-6 shadow-[0_30px_70px_-25px_rgba(11,18,32,.55)] sm:p-8">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h2 className="font-display text-[1.25rem] font-extrabold tracking-[-0.025em] text-white">
@@ -84,7 +88,7 @@ export function TranscriptExample() {
                   >
                     <span
                       className={cn(
-                        "mono-xs rounded-[3px] px-2 py-1 whitespace-nowrap transition-colors",
+                        "mono-xs rounded-full px-2 py-1 whitespace-nowrap transition-colors",
                         isActive
                           ? "bg-white font-medium text-navy"
                           : "bg-navy-3 text-on-dark-2",
@@ -126,20 +130,22 @@ export function TranscriptExample() {
                 aria-pressed={i === active}
                 aria-label={`${item.code}: ${item.label}`}
                 className={cn(
-                  "mono-xs flex shrink-0 items-center gap-2 rounded-[3px] px-3 py-2",
+                  "mono-xs flex shrink-0 items-center gap-2 rounded-full px-3 py-2",
                   i === active
                     ? "bg-white text-navy"
                     : "bg-navy-3 text-on-dark-2",
                 )}
               >
-                <span className={cn("size-2 rounded-full", toneDot[item.tone])} />
+                <span
+                  className={cn("size-2 rounded-full", toneDot[item.tone])}
+                />
                 {item.code}
               </button>
             ))}
           </div>
 
           {/* Detail */}
-          <div className="mt-8 flex flex-col gap-5 rounded-[5px] bg-navy-3/70 p-5 sm:flex-row sm:items-center sm:gap-7 sm:p-6">
+          <div className="mt-8 flex flex-col gap-5 rounded-xl bg-navy-3/70 p-5 sm:flex-row sm:items-center sm:gap-7 sm:p-6">
             <p className="font-mono text-[1.375rem] font-medium text-white sm:w-28">
               {event.code}
             </p>
@@ -153,14 +159,16 @@ export function TranscriptExample() {
             </div>
             <span
               className={cn(
-                "mono-xs inline-flex shrink-0 items-center gap-1.5 self-start rounded-[3px] px-3 py-2 uppercase sm:self-auto",
+                "mono-xs inline-flex shrink-0 items-center gap-1.5 self-start rounded-full px-3 py-2 uppercase sm:self-auto",
                 event.tone === "next"
                   ? "bg-red text-white"
                   : "bg-white/10 text-on-dark-2",
               )}
             >
               {toneLabel[event.tone]}
-              {event.tone === "next" ? <ArrowRight className="size-3.5" /> : null}
+              {event.tone === "next" ? (
+                <ArrowRight className="size-3.5" />
+              ) : null}
             </span>
           </div>
         </div>

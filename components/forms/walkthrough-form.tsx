@@ -7,7 +7,7 @@ import { cn } from "cn";
 import { professionalTypes, site, usStates } from "@/lib/content";
 
 const fieldClass =
-  "h-11 w-full rounded-[4px] border border-input bg-white px-3 text-[0.9375rem] text-text placeholder:text-text-3 focus-visible:border-red focus-visible:ring-2 focus-visible:ring-red/15 focus-visible:outline-none";
+  "h-11 w-full rounded-lg border border-input bg-white px-3 text-[0.9375rem] text-text placeholder:text-text-3 focus-visible:border-red focus-visible:ring-2 focus-visible:ring-red/15 focus-visible:outline-none";
 const labelClass = "block text-[0.875rem] font-semibold text-text";
 
 type WalkthroughFormProps = {
@@ -28,7 +28,9 @@ export function WalkthroughForm({
   compact = false,
 }: WalkthroughFormProps) {
   const id = useId();
-  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
+    "idle",
+  );
   const [error, setError] = useState("");
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -41,9 +43,14 @@ export function WalkthroughForm({
       const res = await fetch("/api/walkthrough", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, source: compact ? "hero" : "walkthrough" }),
+        body: JSON.stringify({
+          ...data,
+          source: compact ? "hero" : "walkthrough",
+        }),
       });
-      const json: { ok?: boolean; error?: string } = await res.json().catch(() => ({}));
+      const json: { ok?: boolean; error?: string } = await res
+        .json()
+        .catch(() => ({}));
       if (!res.ok || !json.ok) throw new Error(json.error ?? "");
       setStatus("done");
     } catch (err) {
@@ -89,16 +96,11 @@ export function WalkthroughForm({
 
   return (
     <div className="relative">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 translate-x-3 translate-y-3 rounded-[6px] bg-ink"
-      />
-
       {status === "done" ? (
         <div
           role="status"
           className={cn(
-            "relative flex flex-col items-center justify-center gap-4 rounded-[6px] bg-white text-center",
+            "relative flex flex-col items-center justify-center gap-4 rounded-2xl border border-line bg-white text-center shadow-[0_30px_70px_-20px_rgba(11,18,32,.35)]",
             compact ? "min-h-[22rem] p-8" : "min-h-[32rem] p-10",
           )}
         >
@@ -110,7 +112,13 @@ export function WalkthroughForm({
           </p>
         </div>
       ) : (
-        <form onSubmit={onSubmit} className={cn("relative rounded-[6px] bg-white", pad)}>
+        <form
+          onSubmit={onSubmit}
+          className={cn(
+            "relative rounded-2xl border border-line bg-white shadow-[0_30px_70px_-20px_rgba(11,18,32,.35)]",
+            pad,
+          )}
+        >
           <h3
             className={cn(
               "font-display font-extrabold tracking-[-0.025em] text-text",
@@ -182,19 +190,30 @@ export function WalkthroughForm({
           </div>
 
           {/* Honeypot for bots; hidden from people and assistive tech. */}
-          <div aria-hidden="true" className="absolute -left-[9999px] size-px overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="absolute -left-[9999px] size-px overflow-hidden"
+          >
             <label htmlFor={`${id}-website`}>Website</label>
-            <input id={`${id}-website`} name="website" tabIndex={-1} autoComplete="off" />
+            <input
+              id={`${id}-website`}
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+            />
           </div>
 
           {status === "error" ? (
             <p
               role="alert"
-              className="mt-5 rounded-[4px] border border-red/30 bg-red-soft px-3.5 py-3 text-[0.875rem] leading-[1.5] text-red"
+              className="mt-5 rounded-lg border border-red/30 bg-red-soft px-3.5 py-3 text-[0.875rem] leading-[1.5] text-red"
             >
-              {error || "We couldn't send your request right now."} Please try again or
-              call{" "}
-              <a href={site.phoneHref} className="font-semibold underline underline-offset-2">
+              {error || "We couldn't send your request right now."} Please try
+              again or call{" "}
+              <a
+                href={site.phoneHref}
+                className="font-semibold underline underline-offset-2"
+              >
                 {site.phone}
               </a>
               .
@@ -240,7 +259,10 @@ function TextField({
   id,
   label,
   ...props
-}: { id: string; label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+}: {
+  id: string;
+  label: string;
+} & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
       <label htmlFor={id} className={labelClass}>
@@ -268,7 +290,12 @@ function SelectField({
       <label htmlFor={id} className={labelClass}>
         {label}
       </label>
-      <select id={id} defaultValue="" className={cn(fieldClass, "mt-2")} {...props}>
+      <select
+        id={id}
+        defaultValue=""
+        className={cn(fieldClass, "mt-2")}
+        {...props}
+      >
         <option value="" disabled>
           {placeholder}
         </option>

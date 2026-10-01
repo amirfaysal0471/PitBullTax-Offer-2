@@ -26,12 +26,17 @@ export function Platform() {
               <article
                 key={card.title}
                 className={cn(
-                  "flex flex-col rounded-[6px] p-7",
+                  "flex flex-col rounded-2xl p-7",
                   large ? "sm:p-8 lg:col-span-3" : "lg:col-span-2",
                   accent ? "bg-red" : "border border-line-dark bg-navy-2",
                 )}
               >
-                <p className={cn("mono-xs", accent ? "text-white/70" : "text-red")}>
+                <p
+                  className={cn(
+                    "mono-xs",
+                    accent ? "text-white/70" : "text-red",
+                  )}
+                >
                   {String(i + 1).padStart(2, "0")}
                 </p>
                 <h3
@@ -51,13 +56,20 @@ export function Platform() {
                   {card.body}
                 </p>
 
-                <ul className={cn("flex flex-wrap gap-2", large ? "mt-5" : "mt-auto pt-8")}>
+                <ul
+                  className={cn(
+                    "flex flex-wrap gap-2",
+                    large ? "mt-5" : "mt-auto pt-8",
+                  )}
+                >
                   {card.links.map((link) => (
                     <li
                       key={link}
                       className={cn(
-                        "mono-xs rounded-[3px] px-2.5 py-1.5",
-                        accent ? "bg-red-dark/70 text-white" : "bg-navy-3 text-on-dark-2",
+                        "mono-xs rounded-full px-3 py-1.5",
+                        accent
+                          ? "bg-red-dark/70 text-white"
+                          : "bg-navy-3 text-on-dark-2",
                       )}
                     >
                       {link}
@@ -67,10 +79,12 @@ export function Platform() {
 
                 {"menu" in card && card.menu ? (
                   <div className="mt-auto pt-8">
-                    <div className="rounded-[5px] bg-white p-4 shadow-[0_18px_40px_rgba(0,0,0,.25)] sm:p-5">
+                    <div className="rounded-xl bg-white p-4 shadow-[0_18px_40px_rgba(0,0,0,.25)] sm:p-5">
                       <p className="flex items-center justify-between border-b border-line pb-3 text-[0.9375rem] font-bold text-[#0b4fa8]">
                         {card.menu.title}
-                        <span className="mono-xs font-normal text-text-3">Tools</span>
+                        <span className="mono-xs font-normal text-text-3">
+                          Tools
+                        </span>
                       </p>
                       <ul className="mt-2 grid">
                         {card.menu.items.map((item) => (
@@ -89,7 +103,7 @@ export function Platform() {
 
                 {"image" in card && card.image ? (
                   <div className="mt-auto pt-8">
-                    <div className="overflow-hidden rounded-[5px] border border-line-dark bg-white">
+                    <div className="overflow-hidden rounded-xl border border-line-dark bg-white">
                       <p className="border-l-4 border-[#f0506e] bg-[#d9ecfc] px-3 py-2 text-[0.8125rem] font-bold tracking-[0.02em] text-[#0b1220] uppercase">
                         IRS Tax Liability
                       </p>
@@ -118,7 +132,7 @@ export function Platform() {
             {offerings.items.map((way) => (
               <article
                 key={way.title}
-                className="rounded-[6px] border border-line-dark bg-navy-2 p-7"
+                className="rounded-2xl border border-line-dark bg-navy-2 p-7"
               >
                 <p className="mono-xs text-red">{way.kicker}</p>
                 <h4 className="mt-2.5 font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-white">
@@ -133,7 +147,10 @@ export function Platform() {
                       key={point}
                       className="flex items-start gap-3 text-[0.9375rem] text-on-dark-2"
                     >
-                      <Check className="mt-1 size-3.5 shrink-0 text-red" strokeWidth={3} />
+                      <Check
+                        className="mt-1 size-3.5 shrink-0 text-red"
+                        strokeWidth={3}
+                      />
                       {point}
                     </li>
                   ))}

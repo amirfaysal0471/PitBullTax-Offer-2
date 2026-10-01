@@ -6,7 +6,7 @@ export function Walkthrough() {
   return (
     <section id="walkthrough" className="scroll-mt-24 bg-red py-20 lg:py-28">
       <div className="container-page">
-        <div className="grid gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] lg:gap-16">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] lg:gap-16">
           <div>
             <Eyebrow tone="light">{walkthrough.eyebrow}</Eyebrow>
 

@@ -3,10 +3,19 @@ import Image from "next/image";
 import { cn } from "cn";
 import { site } from "@/lib/content";
 
-export function Logo({ className, eager = false }: { className?: string; eager?: boolean }) {
+/** `onLight` swaps in the dark-lettered logo for white backgrounds. */
+export function Logo({
+  className,
+  eager = false,
+  onLight = false,
+}: {
+  className?: string;
+  eager?: boolean;
+  onLight?: boolean;
+}) {
   return (
     <Image
-      src={site.logo}
+      src={onLight ? site.logoDark : site.logo}
       alt="PitBullTax Software"
       width={1830}
       height={524}

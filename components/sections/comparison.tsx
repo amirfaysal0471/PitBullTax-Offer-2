@@ -16,13 +16,13 @@ export function Comparison() {
           </p>
         </div>
 
-        <div className="mt-14 grid overflow-hidden rounded-[6px] lg:grid-cols-2">
+        <div className="mt-14 grid overflow-hidden rounded-2xl lg:grid-cols-2">
           <div className="bg-paper p-7 sm:p-9 lg:p-11">
             <div className="flex items-center justify-between gap-4">
               <h3 className="font-display text-[1.25rem] font-extrabold tracking-[-0.025em] text-text sm:text-[1.375rem]">
                 {comparison.manual.title}
               </h3>
-              <span className="mono-xs rounded-[3px] bg-paper-2 px-2 py-1 text-text-2 uppercase">
+              <span className="mono-xs rounded-full bg-paper-2 px-2 py-1 text-text-2 uppercase">
                 {comparison.manual.badge}
               </span>
             </div>
@@ -30,7 +30,10 @@ export function Comparison() {
             <ul className="mt-8 grid gap-5 border-t border-line pt-8">
               {comparison.manual.items.map((item) => (
                 <li key={item} className="flex items-start gap-4">
-                  <X className="mt-0.5 size-4 shrink-0 text-text-3" strokeWidth={2.5} />
+                  <X
+                    className="mt-0.5 size-4 shrink-0 text-text-3"
+                    strokeWidth={2.5}
+                  />
                   <span className="text-[0.9375rem] leading-[1.5] text-text-2">
                     {item}
                   </span>
@@ -44,7 +47,7 @@ export function Comparison() {
               <h3 className="font-display text-[1.25rem] font-extrabold tracking-[-0.025em] text-white sm:text-[1.375rem]">
                 {comparison.focused.title}
               </h3>
-              <span className="mono-xs rounded-[3px] bg-red px-2 py-1 text-white uppercase">
+              <span className="mono-xs rounded-full bg-red px-2 py-1 text-white uppercase">
                 {comparison.focused.badge}
               </span>
             </div>
@@ -52,7 +55,10 @@ export function Comparison() {
             <ul className="mt-8 grid gap-5 border-t border-white/10 pt-8">
               {comparison.focused.items.map((item) => (
                 <li key={item} className="flex items-start gap-4">
-                  <Check className="mt-0.5 size-4 shrink-0 text-red" strokeWidth={3} />
+                  <Check
+                    className="mt-0.5 size-4 shrink-0 text-red"
+                    strokeWidth={3}
+                  />
                   <span className="text-[0.9375rem] leading-[1.5] text-on-dark-2">
                     {item}
                   </span>

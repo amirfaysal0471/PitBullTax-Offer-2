@@ -21,7 +21,7 @@ export function FinalCta() {
           <div className="relative self-start lg:self-auto">
             <span
               aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 rounded-[4px] bg-ink/40"
+              className="absolute inset-0 translate-x-2 translate-y-2 rounded-full bg-ink/40"
             />
             <Link href="#walkthrough" className="btn-ink relative">
               {finalCta.cta}

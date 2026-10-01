@@ -13,7 +13,10 @@ export function Faq() {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
   // Arrow keys, Home and End move focus between questions (WAI-ARIA accordion pattern).
-  function onKeyDown(event: React.KeyboardEvent<HTMLButtonElement>, index: number) {
+  function onKeyDown(
+    event: React.KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) {
     const count = content.items.length;
     const target = {
       ArrowDown: (index + 1) % count,
@@ -29,7 +32,7 @@ export function Faq() {
   return (
     <section id="faq" className="scroll-mt-24 bg-white py-20 lg:py-28">
       <div className="container-page">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:gap-20">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:gap-20">
           <div>
             <Eyebrow>{content.eyebrow}</Eyebrow>
             <h2 className="display t-h2 mt-7 text-text">{content.title}</h2>
@@ -61,7 +64,7 @@ export function Faq() {
                       <span
                         aria-hidden="true"
                         className={cn(
-                          "flex size-8 shrink-0 items-center justify-center rounded-[6px] transition-colors",
+                          "flex size-8 shrink-0 items-center justify-center rounded-full transition-colors",
                           isOpen
                             ? "rotate-45 bg-red text-white"
                             : "bg-paper text-text-2 group-hover:bg-paper-2",

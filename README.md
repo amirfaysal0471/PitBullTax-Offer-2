@@ -77,6 +77,9 @@ Page copy lives in `lib/content.ts`; edit text there rather than in the componen
 - Section 08 is an interactive five-stage case workflow (`components/sections/case-journey.tsx`) instead of the CSED calculator.
 - The transcript example uses case-oriented legend tones (account event, review point, client question, next step) and lives at `#irs-records`; the nav "Case workflow" link points to `#case-workflow`.
 - Hero visual is the Step-by-Step Workflow case overview.
+- Light "software" look, like the existing offer2.pitbulltax.com: red top bar, white header with the dark-lettered logo
+  (`public/brand/pitbulltax-software-dark.png`), light hero with a red underline swoosh, pill buttons and rounder cards.
+  The platform section stays as the one dark band.
 
 ## Before launch
 

@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, ClipboardList, FileCheck2, FileSearch } from "lucide-react";
+import {
+  ArrowRight,
+  ClipboardList,
+  FileCheck2,
+  FileSearch,
+} from "lucide-react";
 
 import { feedback } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -8,18 +13,23 @@ const icons = [ClipboardList, FileSearch, FileCheck2];
 
 export function Feedback() {
   return (
-    <section id="feedback" className="scroll-mt-24 bg-navy py-20 lg:py-28">
+    <section id="feedback" className="scroll-mt-24 bg-white py-20 lg:py-28">
       <div className="container-page">
         <Eyebrow>{feedback.eyebrow}</Eyebrow>
 
-        <h2 className="display t-quote mt-8 max-w-4xl text-white">{feedback.title}</h2>
+        <h2 className="display t-quote mt-8 max-w-4xl text-text">
+          {feedback.title}
+        </h2>
 
-        <div className="mt-10 flex flex-col gap-7 border-t border-line-dark pt-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-          <p className="max-w-2xl text-[1.0625rem] leading-[1.6] text-on-dark-2">
+        <div className="mt-10 flex flex-col gap-7 border-t border-line pt-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+          <p className="max-w-2xl text-[1.0625rem] leading-[1.6] text-text-2">
             {feedback.body}
           </p>
 
-          <Link href="#walkthrough" className="btn-red shrink-0 self-start lg:self-auto">
+          <Link
+            href="#walkthrough"
+            className="btn-red shrink-0 self-start lg:self-auto"
+          >
             {feedback.cta}
             <ArrowRight className="size-4" />
           </Link>
@@ -31,20 +41,20 @@ export function Feedback() {
             return (
               <li
                 key={item.title}
-                className="flex flex-col rounded-[6px] border border-line-dark bg-navy-2 p-7"
+                className="flex flex-col rounded-2xl border border-line bg-paper p-7 transition-shadow hover:shadow-[0_20px_50px_-25px_rgba(11,18,32,.35)]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="flex size-11 items-center justify-center rounded-[5px] bg-red/15 text-red">
+                  <span className="flex size-11 items-center justify-center rounded-full bg-red-soft text-red">
                     <Icon aria-hidden="true" className="size-5" />
                   </span>
-                  <span className="mono-xs text-on-dark-3">
+                  <span className="mono-xs text-text-3">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="mt-6 font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-white">
+                <h3 className="mt-6 font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-text">
                   {item.title}
                 </h3>
-                <p className="mt-2.5 text-[0.9375rem] leading-[1.6] text-on-dark-2">
+                <p className="mt-2.5 text-[0.9375rem] leading-[1.6] text-text-2">
                   {item.body}
                 </p>
               </li>

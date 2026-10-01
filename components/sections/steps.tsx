@@ -27,7 +27,7 @@ export function Steps() {
                 ) : null}
               </div>
 
-              <div className="relative mt-6 flex aspect-video items-center justify-center overflow-hidden rounded-[4px] border border-line bg-paper">
+              <div className="relative mt-6 flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-line bg-paper">
                 {step.video ? (
                   <Video
                     compact
