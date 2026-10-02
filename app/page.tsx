@@ -6,16 +6,19 @@ import { TranscriptExample } from "@/components/sections/transcript-example";
 import { Audience } from "@/components/sections/audience";
 import { Comparison } from "@/components/sections/comparison";
 import { Platform } from "@/components/sections/platform";
+import { Software } from "@/components/sections/software";
 import { Product } from "@/components/sections/product";
 import { CaseJourney } from "@/components/sections/case-journey";
 import { Steps } from "@/components/sections/steps";
 import { Walkthrough } from "@/components/sections/walkthrough";
 import { Feedback } from "@/components/sections/feedback";
+import { Testimonials } from "@/components/sections/testimonials";
+import { Community } from "@/components/sections/community";
 import { Guidance } from "@/components/sections/guidance";
 import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 
-// Sections render in the order of the offer2 page content handoff (01–14).
+// Handoff sections (01–14) plus software, testimonial and community sections from offer2.pitbulltax.com.
 export default function Home() {
   return (
     <div id="top">
@@ -28,11 +31,14 @@ export default function Home() {
         <Audience />
         <Comparison />
         <Platform />
+        <Software />
         <Product />
         <CaseJourney />
         <Steps />
         <Walkthrough />
         <Feedback />
+        <Testimonials />
+        <Community />
         <Guidance />
         <Faq />
         <FinalCta />

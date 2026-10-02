@@ -20,11 +20,11 @@ export const nav = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export const headerCta = "Book a walkthrough";
+export const headerCta = "Apply Now";
 
-// Red strip above the header (audience from section 04 of the handoff).
+// Red strip above the header (from the live offer2.pitbulltax.com page).
 export const topBar =
-  "For Enrolled Agents, CPAs, Tax Attorneys, and the teams guiding tax resolution cases.";
+  "For Attorneys, CPAs, Enrolled Agents, and Tax Professionals Who Crave Unmatched Efficiency and Masterful IRS Advocacy...";
 
 export const videos = {
   id: "KY9KkFmeW8A",
@@ -40,7 +40,7 @@ export const hero = {
   // Part of the title underlined with the red swoosh.
   titleAccent: "one connected platform",
   body: "Bring client intake, IRS transcripts, financial analysis, resolution options, forms, and case work together. PitBullTax helps your team prepare the details and focus on the decisions that matter.",
-  primary: "Book a platform walkthrough",
+  primary: "Apply Now To See If You Qualify",
   secondary: "Explore the case workflow",
   visual: {
     src: "/screens/step-by-step-workflow.jpg",
@@ -49,10 +49,10 @@ export const hero = {
     alt: "PitBullTax Step-by-Step Workflow case overview with client tools, case steps such as client questionnaire, power of attorney and IRS transcripts, and their status",
   },
   form: {
-    title: "Show me the platform",
+    title: "Join a Select Group of Elite IRS Experts Today",
     helper:
-      "Tell us about your practice and we will tailor the walkthrough to your work.",
-    submit: "Request a platform walkthrough",
+      "And transform your client's outcomes and your professional legacy!",
+    submit: "Submit My Request",
     note: "By submitting, you agree that PitBullTax may contact you about this request.",
     success: walkthroughSuccess,
   },
@@ -220,6 +220,7 @@ export const platform = {
       body: "Request and review authorized IRS records that inform the case.",
       links: ["Requests", "Account activity"],
       image: {
+        label: "IRS Tax Liability",
         src: "/screens/irs-tax-liability-rows.webp",
         width: 920,
         height: 372,
@@ -230,16 +231,38 @@ export const platform = {
       title: "Analysis",
       body: "Organize tax periods, balances, and financial information for practitioner review.",
       links: ["Financial review", "Resolution options"],
+      // Screens below are from the live offer2.pitbulltax.com page.
+      image: {
+        label: "Resolution Evaluation",
+        src: "/live/resolution-evaluation.webp",
+        width: 966,
+        height: 700,
+        alt: "PitBullTax Resolution Evaluation comparing Offer in Compromise, Installment Agreement and Currently Not Collectible status for a sample client",
+      },
     },
     {
       title: "Forms",
       body: "Use case information to prepare relevant IRS forms and client documents.",
       links: ["IRS forms", "Documents"],
+      image: {
+        label: "Forms In Use",
+        src: "/live/irs-tax-liability-dashboard.webp",
+        width: 1000,
+        height: 588,
+        alt: "PitBullTax client view with Forms In Use and Other Forms (Form 2848, 433-A, 433-B, 433-D, 433-F, 656) in the sidebar, IRS tax liability and Offer in Compromise filings",
+      },
     },
     {
       title: "Case work",
       body: "Keep tasks, files, and communication connected to the client matter.",
       links: ["Tasks", "Follow-up"],
+      image: {
+        label: "Step-by-Step Workflow",
+        src: "/screens/step-by-step-workflow.jpg",
+        width: 966,
+        height: 579,
+        alt: "PitBullTax case steps with status: create a client, client questionnaire, power of attorney, IRS transcripts and diagnose a case",
+      },
     },
   ],
 };
@@ -281,6 +304,66 @@ export const product = {
       title: "Forms and case progress",
       caption: "Carry the work through the next steps.",
     },
+  ],
+};
+
+// Software-focused content from the live offer2.pitbulltax.com page.
+export const software = {
+  eyebrow: "Inside PitBullTax Software",
+  rows: [
+    {
+      title: "Even if you're new to IRS resolution... PitBullTax has your back.",
+      body: "We all start somewhere – that's why PitBullTax was built to empower tax professionals with the step-by-step tools and insider tips needed to secure optimal client outcomes.",
+      points: [
+        "Step-by-step workflow from new client to diagnosed case",
+        "Status on every step, so the next task is always clear",
+        "Quick start and navigation tutorials built in",
+      ],
+      image: {
+        label: "Step-by-Step Workflow",
+        src: "/screens/step-by-step-workflow.jpg",
+        width: 966,
+        height: 579,
+        alt: "PitBullTax Step-by-Step Workflow with case steps such as creating a client, client questionnaire, power of attorney and IRS transcripts, each with a status",
+      },
+    },
+    {
+      title: "Experience seamless IRS resolution tools.",
+      body: "Master real IRS case strategies with state-of-the-art software. PitBullTax compares the resolution options side by side, so your team can review the facts and choose the best path for the client.",
+      points: [
+        "Offer in Compromise, Installment Agreement and Currently Not Collectible in one view",
+        "CSED tracking connected to IRS transcripts",
+        "IRS forms filled from the case information",
+      ],
+      image: {
+        label: "Resolution Evaluation",
+        src: "/live/resolution-evaluation.webp",
+        width: 966,
+        height: 700,
+        alt: "PitBullTax Resolution Evaluation comparing Offer in Compromise, Installment Agreement and Currently Not Collectible status for a sample client",
+      },
+    },
+  ],
+  toolsTitle: "Tools inside every PitBullTax case",
+  // Real labels from the PitBullTax client sidebar.
+  tools: [
+    "Client Questionnaire",
+    "Case Diagnostics",
+    "Resolution Evaluation",
+    "Client Summary",
+    "IRS Transcripts Delivery",
+    "E-Signature",
+    "Bulk 2848/8821",
+    "Fee Calculator",
+    "Scenario Simulator",
+    "Internal Revenue Manual",
+    "IRS Publications",
+    "Client Portal",
+    "Form 433-A / 433-A (OIC)",
+    "Form 433-F",
+    "Form 656",
+    "Form 2848",
+    "Form 8821",
   ],
 };
 
@@ -345,35 +428,52 @@ export const steps = {
       n: "3",
       title: "Plan the next step",
       body: "Discuss training, access, and how your team would use the platform.",
-      image: "/steps/step-3-training-library.webp",
-      alt: "PitBullTax Video Tutorials library showing tax resolution software demonstrations",
+      image: "/steps/step-3-video-tutorials.webp",
+      alt: "PitBullTax Video Tutorials: tax resolution software demonstrations, including how to read, analyze and monetize IRS transcripts",
       video: false,
     },
   ],
 };
 
-export const professionalTypes = [
-  "Enrolled Agent",
-  "CPA",
-  "Tax Attorney",
-  "Tax Preparer",
-  "Firm Owner",
-  "Tax Staff",
-  "Other",
-];
-
-export const usStates = [
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
-  "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia",
-  "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-  "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
-  "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
-  "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
-  "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
-  "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
-  "Puerto Rico", "Outside the U.S.",
-];
+// Two-step application, matching the fields and options of the live
+// offer2.pitbulltax.com application form (CRM values).
+export const application = {
+  step: "Step",
+  of: "of",
+  continue: "Continue",
+  back: "Back",
+  secure: "100% Secure - Privacy Guaranteed",
+  step2Title: "Fill In Your Details Below to Begin Your Transformation…",
+  step2Helper:
+    "Yes, I'm ready to fast-track my success with the PitBullTax Experts Program – the gateway to an efficient, profitable tax practice.",
+  selectPlaceholder: "Please select an option below",
+  answerPlaceholder: "Enter your answer here",
+  taxFocus: {
+    label: "What area of Tax do you primarily focus on?",
+    options: ["Tax Preparation", "Tax Resolution", "Tax Preparation and Resolution"],
+  },
+  designation: {
+    label: "What is your professional designation?",
+    options: ["Enrolled Agent", "Attorney", "CPA", "Tax Preparer"],
+  },
+  challenge: {
+    label:
+      "What is your biggest challenge in expanding your tax practice and achieving optimal outcomes right now?",
+  },
+  onlinePresence: {
+    label:
+      "If you have an active online presence, please include links to your current website or N/A if not applicable:",
+  },
+  commitment: {
+    label:
+      "By submitting this application, you acknowledge that investing in your growth as an IRS resolution expert requires dedication and resources. How would you describe your current commitment level to transforming your practice?",
+    options: [
+      "I am committed to my future and ready to go",
+      "I still have a few questions on how best to go forward",
+      "I am not ready to make this type of commitment, but possibly in the future",
+    ],
+  },
+};
 
 export const walkthrough = {
   eyebrow: "Personalized platform walkthrough",
@@ -387,9 +487,9 @@ export const walkthrough = {
     { time: "05", title: "Ask your questions", body: "Walk through a scenario relevant to your practice." },
   ],
   form: {
-    title: "Book your platform walkthrough",
-    helper: "Submit your details and our team will follow up to arrange a time.",
-    submit: "Request a platform walkthrough",
+    title: "Join a Select Group of Elite IRS Experts Today",
+    helper: "And transform your client's outcomes and your professional legacy!",
+    submit: "Submit My Request",
     note: "By submitting this form, you agree that PitBullTax may contact you about this request.",
     success: walkthroughSuccess,
   },
@@ -399,7 +499,7 @@ export const feedback = {
   eyebrow: "Built for practitioners",
   title: "Bring the pieces of a resolution case together.",
   body: "PitBullTax helps your team work from client information and IRS records through analysis, forms, and follow-up in one platform.",
-  cta: "See it for your firm",
+  cta: "Apply Now to Unlock Your Potential",
   items: [
     { title: "Prepare", body: "Collect and organize client facts for case review." },
     { title: "Assess", body: "Bring account and financial information into view." },
@@ -407,10 +507,60 @@ export const feedback = {
   ],
 };
 
+export const testimonials = {
+  eyebrow: "Don't just take our word for it...",
+  title: "Hear from top tax experts who transformed their practice",
+  cta: "Ready to see results like they did? Your turn starts now.",
+  items: [
+    {
+      name: "Katharine LaBoda",
+      photo: "/live/avatar-katharine-laboda.webp",
+      quote:
+        "I have been using PitBullTax since 2014. It is one of the best decisions I have ever made. I can do so many more cases per year just because of the speed and efficiency of the software. One resolution case per year pays for my whole annual Pitbull license and then some!",
+    },
+    {
+      name: "Louise Hartford",
+      photo: "/live/avatar-louise-hartford.webp",
+      quote:
+        "Thanks to those IRS transcript reports and their analysis, I was able to get over $506,000 of penalties abated in one phone call for one client. With PitBullTax Software not only do you get the forms you need to do the actual client work, but you get tools like engagement letters, billing templates, and client portal. I love the fact that it is all together in one place. They have my back in this Tax Resolution world.",
+    },
+    {
+      name: "Patrick Noone",
+      photo: "/live/avatar-patrick-noone.webp",
+      quote:
+        "I have been a client of PitBullTax for the past 10 years since April 2015. Their technical support is outstanding, our clients love the IRS transcript report that we are able to provide after tapping into the IRS computers and also the ease of transferring information from one IRS form to another is a huge time saver! Highly recommended!",
+    },
+    {
+      name: "Norris Lozano",
+      photo: "/live/avatar-norris-lozano.webp",
+      quote:
+        "The PitBullTax platform delivers accurate and reliable results. It has exceeded our expectations in handling even the most complex steps of our work flow such as transcript analysis generation, enabling me to prepare a case analysis to communicate effective solutions to my clients and our team effortlessly. The software automation has streamlined our workflow and improved the quality and cost efficiency of the services we provide to clients. Give it a try—you won't be disappointed!",
+    },
+  ],
+};
+
+export const community = {
+  title: "We're more than just tools… we build enduring partnerships.",
+  items: [
+    {
+      kicker: "Exclusive Event Highlights",
+      title: "PitBullTax Hybrid Workshops",
+      body: "Organized for CPAs, EAs and Tax Attorneys who want to efficiently learn and master the techniques of the Tax Resolution specialty while becoming experts in the software platform.",
+      image: { src: "/live/event-workshops.webp", alt: "PitBullTax Hybrid Workshops: a team training session with remote participants" },
+    },
+    {
+      kicker: "Exclusive Tax Communities",
+      title: "PitBullTax Facebook Community",
+      body: "Engage in intimate discussions with peers to share strategies that drive superior client outcomes and foster professional growth.",
+      image: { src: "/live/facebook-community.webp", alt: "Illustration of a connected community of professionals around a globe" },
+    },
+  ],
+};
+
 export const guidance = {
   title: "A guided start for your team",
   body: "See the platform with a PitBullTax team member and review the training resources available for your practice.",
-  cta: "Book a platform walkthrough",
+  cta: "Apply Now To See If You Qualify",
 };
 
 export const faq = {
@@ -448,7 +598,12 @@ export const finalCta = {
   line1: "Keep the case",
   line2: "moving.",
   body: "See how PitBullTax connects the tools your tax resolution team uses every day.",
-  cta: "Book a platform walkthrough",
+  points: [
+    "Gain instant access to IRS transcript tools",
+    "Leverage expert PitBullTax Tips for optimal settlements",
+    "Build a network with leading tax professionals",
+  ],
+  cta: "Get Qualified & Level Up",
 };
 
 export const footer = {

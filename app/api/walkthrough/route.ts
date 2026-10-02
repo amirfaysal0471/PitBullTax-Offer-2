@@ -1,14 +1,18 @@
-import { professionalTypes, usStates } from "@/lib/content";
+import { application } from "@/lib/content";
 
 type Lead = {
+  // "start" = name + email from step 1; "complete" = the full application.
+  stage: "start" | "complete";
   source: "hero" | "walkthrough";
   firstName: string;
-  lastName?: string;
   email: string;
+  lastName?: string;
   phone?: string;
-  state?: string;
-  professionalType?: string;
-  comments?: string;
+  taxFocus?: string;
+  designation?: string;
+  challenge?: string;
+  onlinePresence?: string;
+  commitment?: string;
 };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,31 +21,43 @@ function text(value: unknown, max: number) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
+// Normalizes a US phone number to xxx-xxx-xxxx; returns "" when it is not 10 digits.
+function phoneNumber(value: unknown) {
+  const digits = text(value, 40).replace(/\D/g, "").replace(/^1(?=\d{10})/, "");
+  return digits.length === 10
+    ? `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`
+    : "";
+}
+
 function parseLead(body: Record<string, unknown>): Lead | string {
-  const source = body.source === "hero" ? "hero" : "walkthrough";
   const lead: Lead = {
-    source,
+    stage: body.stage === "start" ? "start" : "complete",
+    source: body.source === "hero" ? "hero" : "walkthrough",
     firstName: text(body.firstName, 100),
-    lastName: text(body.lastName, 100) || undefined,
     email: text(body.email, 254).toLowerCase(),
-    phone: text(body.phone, 40) || undefined,
-    state: text(body.state, 60) || undefined,
-    professionalType: text(body.professionalType, 60) || undefined,
-    comments: text(body.comments, 2000) || undefined,
   };
 
   if (!lead.firstName) return "First name is required.";
   if (!EMAIL.test(lead.email)) return "A valid work email is required.";
+  if (lead.stage === "start") return lead;
 
-  // The full form (red section) also requires last name, state and professional type.
-  if (source === "walkthrough") {
-    if (!lead.lastName) return "Last name is required.";
-    if (!lead.state || !usStates.includes(lead.state)) return "Please select a state.";
-    if (!lead.professionalType || !professionalTypes.includes(lead.professionalType)) {
-      return "Please select a professional type.";
-    }
+  lead.lastName = text(body.lastName, 100);
+  lead.phone = phoneNumber(body.phone);
+  lead.taxFocus = text(body.taxFocus, 100);
+  lead.designation = text(body.designation, 100);
+  lead.challenge = text(body.challenge, 2000) || undefined;
+  lead.onlinePresence = text(body.onlinePresence, 500) || undefined;
+  lead.commitment = text(body.commitment, 200);
+
+  if (!lead.lastName) return "Last name is required.";
+  if (!lead.phone) return "Please enter a phone number in the format xxx-xxx-xxxx.";
+  if (!application.taxFocus.options.includes(lead.taxFocus)) return "Please select your tax focus.";
+  if (!application.designation.options.includes(lead.designation)) {
+    return "Please select your professional designation.";
   }
-
+  if (!application.commitment.options.includes(lead.commitment)) {
+    return "Please select your commitment level.";
+  }
   return lead;
 }
 
