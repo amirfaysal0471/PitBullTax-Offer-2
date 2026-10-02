@@ -9,6 +9,7 @@ export function Community() {
         <h2 className="display max-w-2xl text-[1.75rem] text-text sm:text-[2.25rem]">
           {community.title}
         </h2>
+        <p className="mt-4 max-w-2xl text-[1.0625rem] leading-[1.6] text-text-2">{community.body}</p>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {community.items.map((item) => (

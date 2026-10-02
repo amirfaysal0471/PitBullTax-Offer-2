@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 import { cn } from "cn";
 import { transcriptExample, type EventTone } from "@/lib/content";
@@ -18,158 +18,98 @@ const toneLabel = Object.fromEntries(
 ) as Record<EventTone, string>;
 
 export function TranscriptExample() {
-  const [active, setActive] = useState(transcriptExample.events.length - 1);
-  const event = transcriptExample.events[active];
-  const chips = useRef<HTMLDivElement>(null);
-
-  // Keep the selected chip visible in the horizontally scrolling mobile list.
-  useEffect(() => {
-    const list = chips.current;
-    const chip = list?.children[active] as HTMLElement | undefined;
-    if (!list || !chip) return;
-    list.scrollLeft =
-      chip.offsetLeft - (list.clientWidth - chip.offsetWidth) / 2;
-  }, [active]);
+  const { events } = transcriptExample;
+  const [active, setActive] = useState(events.length - 1);
+  const event = events[active];
 
   return (
-    <section
-      id="irs-records"
-      className="scroll-mt-24 bg-white pt-4 pb-20 lg:pb-28"
-    >
+    <section id="irs-records" className="scroll-mt-24 bg-white py-20 lg:py-24">
       <div className="container-page">
-        <div className="rounded-2xl bg-navy-2 p-6 shadow-[0_30px_70px_-25px_rgba(11,18,32,.55)] sm:p-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <h2 className="font-display text-[1.25rem] font-extrabold tracking-[-0.025em] text-white">
-                {transcriptExample.title}
-              </h2>
-              <p className="mt-1.5 max-w-xl text-[0.875rem] leading-[1.55] text-on-dark-2">
-                {transcriptExample.subtitle}
-              </p>
-              <p className="mono-xs mt-3 inline-block rounded-[3px] border border-dashed border-white/25 px-2.5 py-1.5 text-on-dark-3">
-                {transcriptExample.example}
-              </p>
-            </div>
-
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {transcriptExample.legend.map((item) => (
-                <li
-                  key={item.label}
-                  className="flex items-center gap-2 text-[0.8125rem] text-on-dark-2"
-                >
-                  <span
-                    className={cn("size-2 rounded-full", toneDot[item.tone])}
-                  />
-                  {item.label}
-                </li>
-              ))}
-            </ul>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="display text-[2rem] leading-[1.05] text-text sm:text-[2.5rem]">
+              {transcriptExample.title}
+            </h2>
+            <p className="mt-4 text-[1.0625rem] leading-[1.6] text-text-2">{transcriptExample.subtitle}</p>
           </div>
+          <ul className="flex flex-wrap gap-2 lg:max-w-sm lg:justify-end">
+            {transcriptExample.legend.map((item) => (
+              <li
+                key={item.label}
+                className="flex items-center gap-2 rounded-full border border-line px-3 py-1.5 text-[0.8125rem] text-text-2"
+              >
+                <span className={cn("size-2 rounded-full", toneDot[item.tone])} />
+                {item.label}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          {/* Track */}
-          <div className="mt-12 hidden sm:block">
-            <div className="relative h-24">
-              <span
-                aria-hidden="true"
-                className="rule-dotted absolute inset-x-0 top-[3.25rem] h-px text-red/70"
-              />
-
-              {transcriptExample.events.map((item, i) => {
-                const isActive = i === active;
-                return (
+        <div className="mt-10 grid grid-cols-[minmax(0,1fr)] overflow-hidden rounded-2xl border border-line shadow-[0_30px_70px_-35px_rgba(11,18,32,.45)] lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+          {/* Event list */}
+          <ol className="divide-y divide-line bg-white">
+            {events.map((item, i) => {
+              const isActive = i === active;
+              return (
+                <li key={item.code}>
                   <button
-                    key={item.code}
                     type="button"
                     onClick={() => setActive(i)}
-                    style={{ left: item.pos }}
                     aria-pressed={isActive}
-                    aria-label={`${item.code}: ${item.label}`}
-                    className="absolute top-0 flex -translate-x-1/2 flex-col items-center gap-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-red"
+                    className={cn(
+                      "flex w-full items-center gap-4 px-5 py-4 text-left transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-red sm:px-6",
+                      isActive ? "bg-red-soft" : "hover:bg-paper",
+                    )}
                   >
-                    <span
-                      className={cn(
-                        "mono-xs rounded-full px-2 py-1 whitespace-nowrap transition-colors",
-                        isActive
-                          ? "bg-white font-medium text-navy"
-                          : "bg-navy-3 text-on-dark-2",
-                      )}
-                    >
-                      {item.code}
+                    <span className={cn("size-2.5 shrink-0 rounded-full", toneDot[item.tone])} />
+                    <span className="mono-xs w-14 shrink-0 text-text-2">{item.code}</span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-[0.9375rem] font-semibold text-text">{item.label}</span>
+                      <span className="mono-xs mt-0.5 block text-text-3">{item.date}</span>
                     </span>
-                    <span
-                      className={cn(
-                        "size-5 rounded-full ring-4 transition-all",
-                        toneDot[item.tone],
-                        isActive
-                          ? "scale-110 ring-white/20"
-                          : "ring-navy-2 hover:ring-white/10",
-                      )}
-                    />
+                    <ChevronRight className={cn("size-4 shrink-0", isActive ? "text-red" : "text-text-3")} />
                   </button>
-                );
-              })}
-            </div>
-
-            <div className="mono-xs flex justify-between text-on-dark-3">
-              {transcriptExample.scale.map((label) => (
-                <span key={label}>{label}</span>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile list */}
-          <div
-            ref={chips}
-            className="relative mt-8 flex gap-2 overflow-x-auto pb-2 sm:hidden"
-          >
-            {transcriptExample.events.map((item, i) => (
-              <button
-                key={item.code}
-                type="button"
-                onClick={() => setActive(i)}
-                aria-pressed={i === active}
-                aria-label={`${item.code}: ${item.label}`}
-                className={cn(
-                  "mono-xs flex shrink-0 items-center gap-2 rounded-full px-3 py-2",
-                  i === active
-                    ? "bg-white text-navy"
-                    : "bg-navy-3 text-on-dark-2",
-                )}
-              >
-                <span
-                  className={cn("size-2 rounded-full", toneDot[item.tone])}
-                />
-                {item.code}
-              </button>
-            ))}
-          </div>
+                </li>
+              );
+            })}
+          </ol>
 
           {/* Detail */}
-          <div className="mt-8 flex flex-col gap-5 rounded-xl bg-navy-3/70 p-5 sm:flex-row sm:items-center sm:gap-7 sm:p-6">
-            <p className="font-mono text-[1.375rem] font-medium text-white sm:w-28">
-              {event.code}
-            </p>
-            <div className="min-w-0 flex-1">
-              <p className="font-display text-[1.0625rem] font-bold tracking-[-0.015em] text-white">
-                {event.label}
-              </p>
-              <p className="mt-1.5 text-[0.875rem] leading-[1.55] text-on-dark-2">
-                {event.date} · {event.amount}. {event.detail}
-              </p>
+          <div aria-live="polite" className="flex flex-col bg-navy-2 p-7 sm:p-9">
+            <div className="flex items-center justify-between gap-4">
+              <p className="font-mono text-[2rem] leading-none font-medium text-white">{event.code}</p>
+              <span
+                className={cn(
+                  "mono-xs inline-flex items-center gap-1.5 rounded-full px-3 py-2 uppercase",
+                  event.tone === "next" ? "bg-red text-white" : "bg-white/10 text-on-dark-2",
+                )}
+              >
+                {toneLabel[event.tone]}
+                {event.tone === "next" ? <ArrowRight className="size-3.5" /> : null}
+              </span>
             </div>
-            <span
-              className={cn(
-                "mono-xs inline-flex shrink-0 items-center gap-1.5 self-start rounded-full px-3 py-2 uppercase sm:self-auto",
-                event.tone === "next"
-                  ? "bg-red text-white"
-                  : "bg-white/10 text-on-dark-2",
-              )}
-            >
-              {toneLabel[event.tone]}
-              {event.tone === "next" ? (
-                <ArrowRight className="size-3.5" />
-              ) : null}
-            </span>
+
+            <h3 className="mt-8 font-display text-[1.5rem] leading-[1.2] font-extrabold tracking-[-0.02em] text-white">
+              {event.label}
+            </h3>
+
+            <dl className="mt-5 grid grid-cols-2 gap-3">
+              <div className="rounded-xl bg-white/5 p-4">
+                <dt className="eyebrow text-[0.6875rem] text-on-dark-3">Date</dt>
+                <dd className="mt-1.5 font-mono text-[1rem] text-white">{event.date}</dd>
+              </div>
+              <div className="rounded-xl bg-white/5 p-4">
+                <dt className="eyebrow text-[0.6875rem] text-on-dark-3">Amount</dt>
+                <dd className="mt-1.5 font-mono text-[1rem] text-white">{event.amount}</dd>
+              </div>
+            </dl>
+
+            <p className="mt-6 text-[0.9375rem] leading-[1.65] text-on-dark-2">{event.detail}</p>
+
+            <span aria-hidden="true" className="flex-1" />
+            <p className="mono-xs mt-8 inline-block self-start rounded-full border border-dashed border-white/25 px-3 py-1.5 text-on-dark-3">
+              {transcriptExample.example}
+            </p>
           </div>
         </div>
       </div>

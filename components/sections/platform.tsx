@@ -9,88 +9,43 @@ export function Platform() {
   const p = platform;
 
   return (
-    <section id="platform" className="scroll-mt-24 bg-navy py-20 lg:py-28">
+    <section id="platform" className="scroll-mt-24 bg-paper py-20 lg:py-28">
       <div className="container-page">
-        <Eyebrow>{p.eyebrow}</Eyebrow>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end lg:gap-16">
+          <div>
+            <Eyebrow>{p.eyebrow}</Eyebrow>
+            <h2 className="display t-h2 mt-7 text-text">{p.title}</h2>
+          </div>
+          <p className="max-w-md text-[1.0625rem] leading-[1.6] text-text-2">{p.body}</p>
+        </div>
 
-        <h2 className="display t-h2 mt-7 max-w-3xl text-white">{p.title}</h2>
-        <p className="mt-7 max-w-md text-[1.0625rem] leading-[1.6] text-on-dark-2">
-          {p.body}
-        </p>
-
-        <div className="mt-14 grid gap-4 lg:grid-cols-6">
-          {p.cards.map((card, i) => {
-            const large = i < 2;
-            const accent = i === 0;
-            return (
-              <article
-                key={card.title}
-                className={cn(
-                  "flex flex-col rounded-2xl p-7",
-                  large ? "sm:p-8 lg:col-span-3" : "lg:col-span-2",
-                  accent ? "bg-red" : "border border-line-dark bg-navy-2",
-                )}
-              >
-                <p
-                  className={cn(
-                    "mono-xs",
-                    accent ? "text-white/70" : "text-red",
-                  )}
-                >
+        {/* 3 + 2 grid of tools, each led by its real software screen */}
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
+          {p.cards.map((card, i) => (
+            <article
+              key={card.title}
+              className={cn(
+                "group flex flex-col overflow-hidden rounded-2xl border border-line bg-white transition-shadow hover:shadow-[0_30px_70px_-35px_rgba(11,18,32,.45)]",
+                i < 3 ? "lg:col-span-2" : "lg:col-span-3",
+                i === 2 && "sm:col-span-2 lg:col-span-2",
+              )}
+            >
+              <div className="relative border-b border-line bg-paper-2/60 p-3 pb-0">
+                <span className="mono-xs absolute top-3 left-3 z-10 rounded-full bg-red px-2.5 py-1 text-white">
                   {String(i + 1).padStart(2, "0")}
-                </p>
-                <h3
-                  className={cn(
-                    "mt-2.5 font-display font-extrabold tracking-[-0.025em] text-white",
-                    large ? "text-[1.75rem]" : "text-[1.375rem]",
-                  )}
-                >
-                  {card.title}
-                </h3>
-                <p
-                  className={cn(
-                    "mt-2.5 max-w-sm text-[0.9375rem] leading-[1.5]",
-                    accent ? "text-white/85" : "text-on-dark-2",
-                  )}
-                >
-                  {card.body}
-                </p>
-
-                <ul
-                  className={cn(
-                    "flex flex-wrap gap-2",
-                    large ? "mt-5" : "mt-auto pt-8",
-                  )}
-                >
-                  {card.links.map((link) => (
-                    <li
-                      key={link}
-                      className={cn(
-                        "mono-xs rounded-full px-3 py-1.5",
-                        accent
-                          ? "bg-red-dark/70 text-white"
-                          : "bg-navy-3 text-on-dark-2",
-                      )}
-                    >
-                      {link}
-                    </li>
-                  ))}
-                </ul>
-
-                {"menu" in card && card.menu ? (
-                  <div className="mt-auto pt-8">
-                    <div className="rounded-xl bg-white p-4 shadow-[0_18px_40px_rgba(0,0,0,.25)] sm:p-5">
-                      <p className="flex items-center justify-between border-b border-line pb-3 text-[0.9375rem] font-bold text-[#0b4fa8]">
+                </span>
+                <div className="overflow-hidden rounded-t-xl border border-b-0 border-line bg-white">
+                  {"menu" in card && card.menu ? (
+                    <div className="px-4 pt-10 pb-3">
+                      <p className="flex items-center justify-between border-b border-line pb-2.5 text-[0.875rem] font-bold text-[#0b4fa8]">
                         {card.menu.title}
-                        <span className="mono-xs font-normal text-text-3">
-                          Tools
-                        </span>
+                        <span className="mono-xs font-normal text-text-3">Tools</span>
                       </p>
-                      <ul className="mt-2 grid">
+                      <ul className="mt-1 grid">
                         {card.menu.items.map((item) => (
                           <li
                             key={item}
-                            className="flex items-center justify-between border-b border-line/70 py-2 text-[0.875rem] text-text last:border-0"
+                            className="flex items-center justify-between border-b border-line/70 py-1.5 text-[0.8125rem] text-text last:border-0"
                           >
                             {item}
                             <ChevronRight className="size-3.5 text-text-3" />
@@ -98,59 +53,64 @@ export function Platform() {
                         ))}
                       </ul>
                     </div>
-                  </div>
-                ) : null}
-
-                {"image" in card && card.image ? (
-                  <div className="mt-auto pt-8">
-                    <div className="overflow-hidden rounded-xl border border-line-dark bg-white">
-                      <p className="border-l-4 border-[#f0506e] bg-[#d9ecfc] px-3 py-2 text-[0.8125rem] font-bold tracking-[0.02em] text-[#0b1220] uppercase">
+                  ) : null}
+                  {"image" in card && card.image ? (
+                    <>
+                      <p className="border-l-4 border-[#f0506e] bg-[#d9ecfc] py-2 pr-3 pl-14 text-[0.75rem] font-bold tracking-[0.02em] text-[#0b1220] uppercase">
                         {card.image.label}
                       </p>
-                      <Image
-                        src={card.image.src}
-                        alt={card.image.alt}
-                        width={card.image.width}
-                        height={card.image.height}
-                        sizes="(max-width: 1024px) 88vw, 540px"
-                        className="h-auto w-full"
-                      />
-                    </div>
-                  </div>
-                ) : null}
-              </article>
-            );
-          })}
+                      <div className="relative aspect-[16/10]">
+                        <Image
+                          src={card.image.src}
+                          alt={card.image.alt}
+                          fill
+                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
+                          className="object-contain object-top"
+                        />
+                      </div>
+                    </>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-text">
+                  {card.title}
+                </h3>
+                <p className="mt-2 text-[0.9375rem] leading-[1.55] text-text-2">{card.body}</p>
+                <ul className="mt-auto flex flex-wrap gap-2 pt-5">
+                  {card.links.map((link) => (
+                    <li key={link} className="mono-xs rounded-full bg-red-soft px-3 py-1.5 text-red">
+                      {link}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
         </div>
 
-        <div className="mt-16 border-t border-line-dark pt-14">
-          <h3 className="display max-w-2xl text-[1.875rem] text-white sm:text-[2.25rem]">
+        {/* Two offerings */}
+        <div className="mt-16 overflow-hidden rounded-2xl bg-ink">
+          <h3 className="display px-7 pt-9 text-[1.75rem] text-white sm:px-10 sm:text-[2.125rem]">
             {offerings.title}
           </h3>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            {offerings.items.map((way) => (
+          <p className="max-w-2xl px-7 pt-3 text-[1rem] leading-[1.6] text-on-dark-2 sm:px-10">{offerings.body}</p>
+          <div className="mt-8 grid md:grid-cols-2">
+            {offerings.items.map((way, i) => (
               <article
                 key={way.title}
-                className="rounded-2xl border border-line-dark bg-navy-2 p-7"
+                className={cn("border-t border-white/10 p-7 sm:p-10", i === 1 && "md:border-l")}
               >
-                <p className="mono-xs text-red">{way.kicker}</p>
-                <h4 className="mt-2.5 font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-white">
+                <p className="display text-[2.5rem] leading-none text-red">{way.kicker}</p>
+                <h4 className="mt-4 font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-white">
                   {way.title}
                 </h4>
-                <p className="mt-2.5 text-[0.9375rem] leading-[1.5] text-on-dark-2">
-                  {way.body}
-                </p>
-                <ul className="mt-5 grid gap-2.5">
+                <p className="mt-2 text-[0.9375rem] leading-[1.55] text-on-dark-2">{way.body}</p>
+                <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2.5">
                   {way.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-3 text-[0.9375rem] text-on-dark-2"
-                    >
-                      <Check
-                        className="mt-1 size-3.5 shrink-0 text-red"
-                        strokeWidth={3}
-                      />
+                    <li key={point} className="flex items-start gap-2.5 text-[0.9375rem] text-on-dark-2">
+                      <Check className="mt-1 size-3.5 shrink-0 text-red" strokeWidth={3} />
                       {point}
                     </li>
                   ))}

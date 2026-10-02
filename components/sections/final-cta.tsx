@@ -5,37 +5,35 @@ import { finalCta } from "@/lib/content";
 
 export function FinalCta() {
   return (
-    <section className="bg-red py-20 lg:py-28">
+    <section className="bg-white py-16 lg:py-24">
       <div className="container-page">
-        <h2 className="display t-h2 text-white">
-          {finalCta.line1}
-          <br />
-          <span className="text-outline">{finalCta.line2}</span>
-        </h2>
+        <div className="relative overflow-hidden rounded-[1.75rem] bg-red px-7 py-16 text-center sm:px-12 lg:py-20">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-40 -left-32 size-[30rem] rounded-full bg-white/10"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-24 -bottom-48 size-[26rem] rounded-full bg-ink/15"
+          />
 
-        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p className="max-w-md text-[1.0625rem] leading-[1.6] text-white">
-              {finalCta.body}
-            </p>
-            <ul className="mt-6 grid gap-2.5">
+          <div className="relative mx-auto max-w-2xl">
+            <h2 className="display t-h2 text-white">
+              {finalCta.line1} <span className="text-outline">{finalCta.line2}</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-md text-[1.0625rem] leading-[1.6] text-white/90">{finalCta.body}</p>
+            <ul className="mx-auto mt-7 flex max-w-xl flex-wrap justify-center gap-2.5">
               {finalCta.points.map((point) => (
-                <li key={point} className="flex items-center gap-3 text-[0.9375rem] font-medium text-white">
-                  <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-white text-red">
-                    <Check className="size-3" strokeWidth={3.5} />
-                  </span>
+                <li
+                  key={point}
+                  className="flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-[0.875rem] font-medium text-white"
+                >
+                  <Check className="size-3.5" strokeWidth={3.5} />
                   {point}
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="relative self-start lg:self-auto">
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 translate-x-2 translate-y-2 rounded-full bg-ink/40"
-            />
-            <Link href="#walkthrough" className="btn-ink relative">
+            <Link href="#walkthrough" className="btn-ink mt-9">
               {finalCta.cta}
               <ArrowRight className="size-4" />
             </Link>

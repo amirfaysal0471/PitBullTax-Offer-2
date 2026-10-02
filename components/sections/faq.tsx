@@ -30,7 +30,7 @@ export function Faq() {
   }
 
   return (
-    <section id="faq" className="scroll-mt-24 bg-white py-20 lg:py-28">
+    <section id="faq" className="scroll-mt-24 bg-paper py-20 lg:py-28">
       <div className="container-page">
         <div className="mx-auto max-w-3xl text-center">
           <Eyebrow className="justify-center">{content.eyebrow}</Eyebrow>

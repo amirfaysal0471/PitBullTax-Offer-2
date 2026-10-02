@@ -22,7 +22,7 @@ export function Hero() {
           <div>
             <Eyebrow>{hero.eyebrow}</Eyebrow>
 
-            <h1 className="display t-h1 mt-6 text-text lg:mt-5">
+            <h1 className="display mt-6 text-[clamp(2.125rem,1.3rem+2.4vw,3.25rem)] leading-[1.02] text-text lg:mt-5">
               {before}
               <span className="swoosh">{hero.titleAccent}</span>
               {after}

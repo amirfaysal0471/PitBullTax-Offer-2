@@ -19,7 +19,7 @@ export function CaseJourney() {
   return (
     <section
       id="case-workflow"
-      className="scroll-mt-24 bg-paper py-20 lg:py-28"
+      className="scroll-mt-24 bg-white py-20 lg:py-28"
     >
       <div className="container-page">
         <Eyebrow>{caseJourney.eyebrow}</Eyebrow>

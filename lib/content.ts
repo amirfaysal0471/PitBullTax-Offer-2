@@ -8,9 +8,9 @@ export const site = {
 };
 
 export const meta = {
-  title: "PitBullTax — Move every tax resolution case forward",
+  title: "PitBullTax Software — The Ultimate Tool for Mastering IRS Representation",
   description:
-    "Bring client intake, IRS transcripts, financial analysis, resolution options, forms, and case work together in one connected tax resolution platform.",
+    "If your client has IRS problems, PitBullTax's innovative platform guides you to secure the best settlement with proven strategies and expert tips.",
 };
 
 export const nav = [
@@ -35,11 +35,12 @@ const walkthroughSuccess =
   "Thank you. We received your request and will contact you to arrange your platform walkthrough.";
 
 export const hero = {
-  eyebrow: "Tax resolution software for practitioners",
-  title: "Move every tax resolution case forward with one connected platform.",
+  // Hero copy from the live offer2.pitbulltax.com page.
+  eyebrow: "The ultimate tool for mastering IRS representation",
+  title: "PitBullTax is revolutionizing IRS resolution. Join the elite group and redefine client success!",
   // Part of the title underlined with the red swoosh.
-  titleAccent: "one connected platform",
-  body: "Bring client intake, IRS transcripts, financial analysis, resolution options, forms, and case work together. PitBullTax helps your team prepare the details and focus on the decisions that matter.",
+  titleAccent: "redefine client success",
+  body: "If your client has IRS problems, PitBullTax's innovative platform guides you to secure the best settlement with proven strategies and expert tips.",
   primary: "Apply Now To See If You Qualify",
   secondary: "Explore the case workflow",
   visual: {
@@ -195,9 +196,9 @@ export const comparison = {
 };
 
 export const platform = {
-  eyebrow: "The platform",
-  title: "The tools your resolution team uses in one place.",
-  body: "Connect the work from client intake to IRS records, analysis, forms, and follow-up.",
+  eyebrow: "What is the PitBullTax platform?",
+  title: "Join an exclusive community of top-tier tax experts.",
+  body: "PitBullTax unites elite IRS practitioners who leverage cutting-edge software tools and PitBullTax Tips to deliver superior outcomes for clients.",
   cards: [
     {
       title: "Intake",
@@ -268,29 +269,30 @@ export const platform = {
 };
 
 export const offerings = {
-  title: "Two ways PitBullTax supports your practice",
+  title: "Ways we can help you",
+  body: "PitBullTax was created to empower tax professionals with seamless tax resolution tools and fast, reliable IRS transcript delivery—all in one powerful, easy-to-use platform.",
   items: [
     {
       kicker: "01",
       title: "Tax Resolution",
-      body: "Prepare and manage client matters from intake through analysis, forms, and follow-up.",
+      body: "Enjoy a web-based platform engineered for efficiency, thorough preparation, and aggressive advocacy in every case.",
       points: ["Client questionnaire", "Financial review", "Forms", "Case workflow"],
     },
     {
       kicker: "02",
       title: "Transcript Delivery & Monitoring",
-      body: "Request, interpret, and monitor IRS records that inform the case.",
+      body: "Tap into state-of-the-art IRS transcript tools and PitBullTax Tips that have saved clients millions in taxes, penalties, and interest.",
       points: ["Bulk requests", "Account activity", "Alerts", "Reports"],
     },
   ],
 };
 
 export const product = {
-  eyebrow: "Inside the software",
-  title: "See a resolution case move through PitBullTax.",
-  body: "Follow an example from intake and IRS records through analysis, forms, and a client-facing case summary.",
-  videoLabel: "Watch the PitBullTax platform walkthrough",
-  videoCaption: "See the connected workflow in action.",
+  eyebrow: "PitBullTax Software Presentation",
+  title: "Discover the PitBullTax advantage.",
+  body: "See how the platform guides you from a client's IRS problem to the best settlement, with proven strategies and expert tips along the way.",
+  videoLabel: "Turn up the volume and discover the PitBullTax advantage now!",
+  videoCaption: "PitBullTax Software Presentation",
   shots: [
     {
       src: "/screens/transcripts-dashboard.webp",
@@ -329,7 +331,7 @@ export const software = {
     },
     {
       title: "Experience seamless IRS resolution tools.",
-      body: "Master real IRS case strategies with state-of-the-art software. PitBullTax compares the resolution options side by side, so your team can review the facts and choose the best path for the client.",
+      body: "Master real IRS case strategies with our state-of-the-art software, and join a network where insights and success stories are shared among peers. A strong professional network is the backbone of a thriving practice.",
       points: [
         "Offer in Compromise, Installment Agreement and Currently Not Collectible in one view",
         "CSED tracking connected to IRS transcripts",
@@ -476,9 +478,10 @@ export const application = {
 };
 
 export const walkthrough = {
-  eyebrow: "Personalized platform walkthrough",
-  title: "See how the platform fits your practice.",
-  body: "Book a personalized 30-minute look at the tax resolution workflow. Tell us where your team spends the most time, and we will focus on the tools that matter to you.",
+  // From the live offer2 application page.
+  eyebrow: "You're one step closer to becoming the trusted IRS expert",
+  title: "The PitBull Tax Experts Program!",
+  body: "Submit your details now to find out if you qualify for the exclusive PitBullTax Experts Program and platform designed for IRS resolution mastery.",
   agenda: [
     { time: "01", title: "Start with client intake", body: "Gather the information your team needs." },
     { time: "02", title: "Connect IRS records", body: "Bring transcript activity into the case." },
@@ -540,7 +543,8 @@ export const testimonials = {
 };
 
 export const community = {
-  title: "We're more than just tools… we build enduring partnerships.",
+  title: "We're more than just tools… we build enduring partnerships and success stories!",
+  body: "Discover past client success events and see what awaits when you join the PitBullTax revolution!",
   items: [
     {
       kicker: "Exclusive Event Highlights",
@@ -595,9 +599,9 @@ export const faq = {
 };
 
 export const finalCta = {
-  line1: "Keep the case",
-  line2: "moving.",
-  body: "See how PitBullTax connects the tools your tax resolution team uses every day.",
+  line1: "Your fast-track to",
+  line2: "IRS mastery.",
+  body: "Empower your practice with up-to-date IRS insights, streamlined transcript access, and proven strategies designed for top tax professionals.",
   points: [
     "Gain instant access to IRS transcript tools",
     "Leverage expert PitBullTax Tips for optimal settlements",
