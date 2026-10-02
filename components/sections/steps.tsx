@@ -11,11 +11,7 @@ import { headerCta, steps } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
 // Label shown in the browser frame for each step's screen.
-const screenLabels = [
-  "Personal walkthrough",
-  "Step-by-Step Workflow",
-  "Video Tutorials",
-];
+const screenLabels = ["PitBullTax Software Presentation", "Step-by-Step Workflow", "Video Tutorials"];
 
 // Each step stays on screen this long before the next one plays.
 const STEP_MS = 5000;
@@ -207,7 +203,7 @@ export function Steps() {
                       isActive ? "text-text" : "text-text-3",
                     )}
                   >
-                    {item.title}
+                    {item.short}
                   </span>
                 </button>
               );

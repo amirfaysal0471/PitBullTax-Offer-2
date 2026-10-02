@@ -408,28 +408,31 @@ export const caseJourney = {
 
 export const steps = {
   eyebrow: "How it works",
-  title: "See how the platform fits your practice in three steps.",
+  title: "From application to IRS mastery in three steps.",
   items: [
     {
       n: "1",
-      title: "Book a walkthrough",
-      body: "Tell us about your practice focus and the cases your team handles.",
+      title: "Apply to see if you qualify",
+      short: "Apply",
+      body: "Share your name and email, then tell us about your practice in a short application. It only takes a couple of minutes.",
       image: "/steps/step-1-walkthrough-call.webp",
       alt: "A PitBullTax walkthrough call on a laptop",
       video: true,
     },
     {
       n: "2",
-      title: "See your workflow",
-      body: "We will demonstrate the tools most relevant to your work, from intake to forms.",
+      title: "Get your personalized walkthrough",
+      short: "Walkthrough",
+      body: "Once you qualify, our team walks you through the tools most relevant to your cases, from client intake to IRS forms.",
       image: "/screens/step-by-step-workflow.jpg",
       alt: "PitBullTax Step-by-Step Workflow screen showing case steps, including the client questionnaire, power of attorney and IRS transcripts, with their status",
       video: false,
     },
     {
       n: "3",
-      title: "Plan the next step",
-      body: "Discuss training, access, and how your team would use the platform.",
+      title: "Join the PitBull Tax Experts Program",
+      short: "Join",
+      body: "Get started with training, video tutorials, and a community of tax professionals who build winning IRS strategies together.",
       image: "/steps/step-3-video-tutorials.webp",
       alt: "PitBullTax Video Tutorials: tax resolution software demonstrations, including how to read, analyze and monetize IRS transcripts",
       video: false,
