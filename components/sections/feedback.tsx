@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ClipboardList, FileCheck2, FileSearch } from "lucide-react";
+import {
+  ArrowRight,
+  ClipboardList,
+  FileCheck2,
+  FileSearch,
+} from "lucide-react";
 
 import { feedback } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -10,16 +15,16 @@ const stages = [
   {
     icon: ClipboardList,
     screen: {
-      src: "/screens/step-by-step-workflow.jpg",
+      src: "/screens/client-questionnaire.webp",
       width: 966,
       height: 579,
-      alt: "PitBullTax Step-by-Step Workflow with client intake and questionnaire steps",
+      alt: "PitBullTax Client Questionnaire with sections such as taxpayer, dependents, IRS liability, employment and banking",
     },
   },
   {
     icon: FileSearch,
     screen: {
-      src: "/live/resolution-evaluation.webp",
+      src: "/screens/resolution-evaluation.webp",
       width: 966,
       height: 700,
       alt: "PitBullTax Resolution Evaluation comparing resolution options for a sample client",
@@ -28,17 +33,20 @@ const stages = [
   {
     icon: FileCheck2,
     screen: {
-      src: "/live/irs-tax-liability-dashboard.webp",
-      width: 1000,
-      height: 588,
-      alt: "PitBullTax IRS tax liability and Offer in Compromise filings with forms in the sidebar",
+      src: "/screens/irs-form-preview.webp",
+      width: 966,
+      height: 648,
+      alt: "PitBullTax Form Preview of Form 433-F Collection Information Statement filled from the case",
     },
   },
 ];
 
 export function Feedback() {
   return (
-    <section id="feedback" className="relative scroll-mt-24 overflow-hidden bg-navy py-20 lg:py-28">
+    <section
+      id="feedback"
+      className="relative scroll-mt-24 overflow-hidden bg-navy py-20 lg:py-28"
+    >
       <div aria-hidden="true" className="absolute inset-0 grid-lines" />
       <div
         aria-hidden="true"
@@ -52,7 +60,9 @@ export function Feedback() {
             <h2 className="display t-h2 mt-7 text-white">{feedback.title}</h2>
           </div>
           <div>
-            <p className="max-w-md text-[1.0625rem] leading-[1.6] text-on-dark-2">{feedback.body}</p>
+            <p className="max-w-md text-[1.0625rem] leading-[1.6] text-on-dark-2">
+              {feedback.body}
+            </p>
             <Link href="#walkthrough" className="btn-red mt-7">
               {feedback.cta}
               <ArrowRight className="size-4" />
@@ -67,33 +77,39 @@ export function Feedback() {
             return (
               <li key={item.title} className="relative flex">
                 <article className="flex w-full flex-col overflow-hidden rounded-2xl border border-line-dark bg-navy-2 transition-colors hover:border-red/50">
-                  <div className="relative aspect-[16/10] border-b border-line-dark bg-white">
-                    <Image
-                      src={stage.screen.src}
-                      alt={stage.screen.alt}
-                      fill
-                      sizes="(max-width: 768px) 92vw, 380px"
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
+                  <div className="p-6 pb-5">
                     <div className="flex items-center gap-3">
                       <span className="flex size-10 items-center justify-center rounded-full bg-red text-white">
                         <Icon aria-hidden="true" className="size-5" />
                       </span>
-                      <span className="mono-xs text-on-dark-3">Stage {String(i + 1).padStart(2, "0")}</span>
+                      <span className="mono-xs text-on-dark-3">
+                        Stage {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
                     <h3 className="mt-4 font-display text-[1.5rem] font-extrabold tracking-[-0.025em] text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-[0.9375rem] leading-[1.6] text-on-dark-2">{item.body}</p>
+                    <p className="mt-2 text-[0.9375rem] leading-[1.6] text-on-dark-2">
+                      {item.body}
+                    </p>
+                  </div>
+                  {/* The whole screen at its own ratio, pinned to the card bottom: no crop, no white space. */}
+                  <div className="mt-auto px-3 pb-3">
+                    <Image
+                      src={stage.screen.src}
+                      alt={stage.screen.alt}
+                      width={stage.screen.width}
+                      height={stage.screen.height}
+                      sizes="(max-width: 768px) 92vw, 380px"
+                      className="h-auto w-full rounded-lg border border-line-dark"
+                    />
                   </div>
                 </article>
 
                 {i < feedback.items.length - 1 ? (
                   <span
                     aria-hidden="true"
-                    className="absolute top-1/2 -right-5 z-10 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border-4 border-navy bg-red text-white md:flex lg:-right-6"
+                    className="absolute top-11 -right-5 z-10 hidden size-10 -translate-y-1/2 items-center justify-center rounded-full border-4 border-navy bg-red text-white md:flex lg:-right-6"
                   >
                     <ArrowRight className="size-4" />
                   </span>

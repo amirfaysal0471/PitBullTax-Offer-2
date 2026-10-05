@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Check, ChevronRight } from "lucide-react";
+import { Check, FileText, FolderOpen } from "lucide-react";
 
 import { cn } from "cn";
 import { platform, offerings } from "@/lib/content";
@@ -16,7 +16,9 @@ export function Platform() {
             <Eyebrow>{p.eyebrow}</Eyebrow>
             <h2 className="display t-h2 mt-7 text-text">{p.title}</h2>
           </div>
-          <p className="max-w-md text-[1.0625rem] leading-[1.6] text-text-2">{p.body}</p>
+          <p className="max-w-md text-[1.0625rem] leading-[1.6] text-text-2">
+            {p.body}
+          </p>
         </div>
 
         {/* 3 + 2 grid of tools, each led by its real software screen */}
@@ -35,24 +37,42 @@ export function Platform() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="overflow-hidden rounded-t-xl border border-b-0 border-line bg-white">
-                  {"menu" in card && card.menu ? (
-                    <div className="px-4 pt-10 pb-3">
-                      <p className="flex items-center justify-between border-b border-line pb-2.5 text-[0.875rem] font-bold text-[#0b4fa8]">
-                        {card.menu.title}
-                        <span className="mono-xs font-normal text-text-3">Tools</span>
+                  {"files" in card && card.files ? (
+                    <>
+                      <p className="flex items-center justify-between border-l-4 border-[#f0506e] bg-[#d9ecfc] py-2 pr-3 pl-14 text-[0.75rem] font-bold tracking-[0.02em] text-[#0b1220] uppercase">
+                        <span className="flex items-center gap-1.5">
+                          <FolderOpen className="size-3.5" />
+                          {card.files.title}
+                        </span>
+                        <span className="font-semibold tracking-normal normal-case text-text-3">
+                          {card.files.client}
+                        </span>
                       </p>
-                      <ul className="mt-1 grid">
-                        {card.menu.items.map((item) => (
-                          <li
-                            key={item}
-                            className="flex items-center justify-between border-b border-line/70 py-1.5 text-[0.8125rem] text-text last:border-0"
-                          >
-                            {item}
-                            <ChevronRight className="size-3.5 text-text-3" />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                      <div className="aspect-[16/10] px-3 py-1.5 text-text">
+                        <ul className="grid">
+                          {card.files.items.map((file) => (
+                            <li
+                              key={file.name}
+                              className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 border-b border-line/70 py-1.5 text-[0.75rem] last:border-0"
+                            >
+                              <FileText className="size-3.5 text-red" />
+                              <span className="truncate">
+                                <span className="font-semibold">
+                                  {file.name}
+                                </span>
+                                <span className="text-text-3">
+                                  {" "}
+                                  · {file.folder}
+                                </span>
+                              </span>
+                              <span className="text-text-3 tabular-nums">
+                                {file.date}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
                   ) : null}
                   {"image" in card && card.image ? (
                     <>
@@ -65,7 +85,7 @@ export function Platform() {
                           alt={card.image.alt}
                           fill
                           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
-                          className="object-contain object-top"
+                          className="object-cover object-left-top"
                         />
                       </div>
                     </>
@@ -77,10 +97,15 @@ export function Platform() {
                 <h3 className="font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-text">
                   {card.title}
                 </h3>
-                <p className="mt-2 text-[0.9375rem] leading-[1.55] text-text-2">{card.body}</p>
+                <p className="mt-2 text-[0.9375rem] leading-[1.55] text-text-2">
+                  {card.body}
+                </p>
                 <ul className="mt-auto flex flex-wrap gap-2 pt-5">
                   {card.links.map((link) => (
-                    <li key={link} className="mono-xs rounded-full bg-red-soft px-3 py-1.5 text-red">
+                    <li
+                      key={link}
+                      className="mono-xs rounded-full bg-red-soft px-3 py-1.5 text-red"
+                    >
                       {link}
                     </li>
                   ))}
@@ -95,22 +120,37 @@ export function Platform() {
           <h3 className="display px-7 pt-9 text-[1.75rem] text-white sm:px-10 sm:text-[2.125rem]">
             {offerings.title}
           </h3>
-          <p className="max-w-2xl px-7 pt-3 text-[1rem] leading-[1.6] text-on-dark-2 sm:px-10">{offerings.body}</p>
+          <p className="max-w-2xl px-7 pt-3 text-[1rem] leading-[1.6] text-on-dark-2 sm:px-10">
+            {offerings.body}
+          </p>
           <div className="mt-8 grid md:grid-cols-2">
             {offerings.items.map((way, i) => (
               <article
                 key={way.title}
-                className={cn("border-t border-white/10 p-7 sm:p-10", i === 1 && "md:border-l")}
+                className={cn(
+                  "border-t border-white/10 p-7 sm:p-10",
+                  i === 1 && "md:border-l",
+                )}
               >
-                <p className="display text-[2.5rem] leading-none text-red">{way.kicker}</p>
+                <p className="display text-[2.5rem] leading-none text-red">
+                  {way.kicker}
+                </p>
                 <h4 className="mt-4 font-display text-[1.375rem] font-extrabold tracking-[-0.025em] text-white">
                   {way.title}
                 </h4>
-                <p className="mt-2 text-[0.9375rem] leading-[1.55] text-on-dark-2">{way.body}</p>
+                <p className="mt-2 text-[0.9375rem] leading-[1.55] text-on-dark-2">
+                  {way.body}
+                </p>
                 <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2.5">
                   {way.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2.5 text-[0.9375rem] text-on-dark-2">
-                      <Check className="mt-1 size-3.5 shrink-0 text-red" strokeWidth={3} />
+                    <li
+                      key={point}
+                      className="flex items-start gap-2.5 text-[0.9375rem] text-on-dark-2"
+                    >
+                      <Check
+                        className="mt-1 size-3.5 shrink-0 text-red"
+                        strokeWidth={3}
+                      />
                       {point}
                     </li>
                   ))}

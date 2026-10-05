@@ -43,13 +43,13 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative lg:pb-36">
-            <div className="relative z-10 lg:mr-12">
+          <div>
+            <div>
               <WalkthroughForm compact {...hero.form} />
             </div>
 
-            {/* Product visual: behind the form on desktop, below it on mobile */}
-            <div className="mt-10 overflow-hidden rounded-xl border border-line bg-white p-1.5 shadow-[0_26px_60px_-12px_rgba(11,18,32,.25)] lg:absolute lg:right-[-10%] lg:bottom-0 lg:mt-0 lg:w-[82%]">
+            {/* Product visual sits below the form so the two never overlap. */}
+            <div className="mt-6 overflow-hidden rounded-xl border border-line bg-white p-1.5 shadow-[0_26px_60px_-12px_rgba(11,18,32,.25)]">
               <Image
                 src={hero.visual.src}
                 alt={hero.visual.alt}

@@ -67,7 +67,7 @@ export function Steps() {
             alt={step.alt}
             fill
             sizes="(max-width: 1024px) 92vw, 680px"
-            className="object-contain"
+            className={cn("object-cover", step.image.startsWith("/live") ? "object-top" : "object-left-top")}
           />
         )}
       </div>
