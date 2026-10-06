@@ -87,6 +87,7 @@ export function WalkthroughForm({
   }, [dialog]);
 
   async function post(body: Record<string, unknown>) {
+    console.log("[walkthrough] submit", body);
     const res = await fetch("/api/walkthrough", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -95,6 +96,7 @@ export function WalkthroughForm({
     const json: { ok?: boolean; error?: string } = await res
       .json()
       .catch(() => ({}));
+    console.log("[walkthrough] response", res.status, json);
     if (!res.ok || !json.ok) throw new Error(json.error ?? "");
   }
 
@@ -474,11 +476,7 @@ function TextField({
       <label htmlFor={id} className={cn(labelClass, "mb-2")}>
         {label}
       </label>
-      <input
-        id={id}
-        className={cn(fieldClass, "mt-auto")}
-        {...props}
-      />
+      <input id={id} className={cn(fieldClass, "mt-auto")} {...props} />
     </div>
   );
 }

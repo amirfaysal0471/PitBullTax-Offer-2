@@ -10,7 +10,7 @@ export const site = {
 export const meta = {
   title: "PitBullTax Software — The Ultimate Tool for Mastering IRS Representation",
   description:
-    "If your client has IRS problems, PitBullTax's innovative platform guides you to secure the best settlement with proven strategies and expert tips.",
+    "If your client has IRS problems, PitBullTax's innovative platform guides you toward the right resolution with step-by-step tools and expert tips.",
 };
 
 export const nav = [
@@ -32,7 +32,7 @@ export const videos = {
 };
 
 const walkthroughSuccess =
-  "Thank you. We received your request and will contact you to arrange your platform walkthrough.";
+  "Thank you. We received your application. Our team will review your practice details and contact you about next steps, including a personalized PitBullTax walkthrough.";
 
 export const hero = {
   // Hero copy from the live offer2.pitbulltax.com page.
@@ -40,13 +40,13 @@ export const hero = {
   title: "PitBullTax is revolutionizing IRS resolution. Join the elite group and redefine client success!",
   // Part of the title underlined with the red swoosh.
   titleAccent: "redefine client success",
-  body: "If your client has IRS problems, PitBullTax's innovative platform guides you to secure the best settlement with proven strategies and expert tips.",
+  body: "If your client has IRS problems, PitBullTax's innovative platform guides you toward the right resolution with step-by-step tools and expert tips.",
   primary: "Apply Now To See If You Qualify",
   secondary: "Explore the case workflow",
   visual: {
-    src: "/screens/step-by-step-workflow.webp",
-    width: 966,
-    height: 579,
+    src: "/screens/g09-step-by-step-workflow.webp",
+    width: 1600,
+    height: 959,
     alt: "PitBullTax Step-by-Step Workflow case overview with client tools, case steps such as client questionnaire, power of attorney and IRS transcripts, and their status",
   },
   form: {
@@ -70,7 +70,7 @@ export const proofStrip = {
   ],
 };
 
-export type EventTone = "event" | "review" | "question" | "next";
+export type EventTone = "event" | "review" | "question";
 
 type TimelineEvent = {
   code: string;
@@ -92,7 +92,6 @@ export const transcriptExample = {
     { label: "Account event", tone: "event" },
     { label: "Review point", tone: "review" },
     { label: "Client question", tone: "question" },
-    { label: "Next step", tone: "next" },
   ] satisfies { label: string; tone: EventTone }[],
   events: [
     {
@@ -149,11 +148,11 @@ export const transcriptExample = {
       code: "TC 971",
       pos: "86%",
       date: "Jun 10, 2024",
-      label: "Account notice identified",
+      label: "Miscellaneous transaction",
       amount: "$0.00",
-      tone: "next",
+      tone: "review",
       detail:
-        "Review the notice, confirm the underlying account activity, and consider what information is needed before choosing a resolution path.",
+        "TC 971 is a miscellaneous transaction; its action code explains what happened. Check the action code and the underlying account activity before choosing a resolution path.",
     },
   ] satisfies TimelineEvent[],
 };
@@ -206,9 +205,9 @@ export const platform = {
       links: ["Client questionnaire", "Case details"],
       image: {
         label: "Client Questionnaire",
-        src: "/screens/client-questionnaire.webp",
-        width: 966,
-        height: 579,
+        src: "/screens/g04-client-questionnaire.webp",
+        width: 1600,
+        height: 959,
         alt: "PitBullTax Client Questionnaire with sections such as taxpayer, dependents, IRS liability, employment and banking",
       },
     },
@@ -217,10 +216,10 @@ export const platform = {
       body: "Request and review authorized IRS records that inform the case.",
       links: ["Requests", "Account activity"],
       image: {
-        label: "Account Transcript Summary",
-        src: "/screens/account-transcript-summary.webp",
-        width: 966,
-        height: 579,
+        label: "Transcript Reports",
+        src: "/screens/g02-account-transcript-summary.webp",
+        width: 1600,
+        height: 1279,
         alt: "PitBullTax Account Transcript Summary Report with each period's transactions, codes, dates and amounts",
       },
     },
@@ -230,9 +229,9 @@ export const platform = {
       links: ["Financial review", "Resolution options"],
       image: {
         label: "Resolution Evaluation",
-        src: "/screens/resolution-evaluation.webp",
-        width: 966,
-        height: 700,
+        src: "/screens/g05-resolution-evaluation.webp",
+        width: 1600,
+        height: 1159,
         alt: "PitBullTax Resolution Evaluation comparing Offer in Compromise, Installment Agreement and Currently Not Collectible status for a sample client",
       },
     },
@@ -242,9 +241,9 @@ export const platform = {
       links: ["IRS forms", "Documents"],
       image: {
         label: "Form Preview",
-        src: "/screens/irs-form-preview.webp",
-        width: 966,
-        height: 648,
+        src: "/screens/g06-irs-form-preview.webp",
+        width: 1600,
+        height: 1073,
         alt: "PitBullTax Form Preview of Form 433-F Collection Information Statement filled from the case, with Forms In Use in the sidebar",
       },
     },
@@ -252,17 +251,12 @@ export const platform = {
       title: "Case work",
       body: "Keep tasks, files, and communication connected to the client matter.",
       links: ["Tasks", "Follow-up"],
-      // Preview of the client Files module (sample documents).
-      files: {
-        title: "Files",
-        client: "A, Charles",
-        items: [
-          { name: "Form 2848 – signed.pdf", folder: "Authorizations", date: "03/06/2025" },
-          { name: "Account transcripts 2019–2024.pdf", folder: "IRS records", date: "03/10/2025" },
-          { name: "Form 433-F.pdf", folder: "Forms", date: "03/14/2025" },
-          { name: "Bank statements.pdf", folder: "Client documents", date: "03/18/2025" },
-          { name: "CP504 notice.pdf", folder: "IRS letters", date: "03/21/2025" },
-        ],
+      image: {
+        label: "Files",
+        src: "/screens/g08-files.webp",
+        width: 1102,
+        height: 690,
+        alt: "PitBullTax Files module with upload file, create folder and share IRS forms controls above a client's document folders",
       },
     },
   ],
@@ -281,7 +275,7 @@ export const offerings = {
     {
       kicker: "02",
       title: "Transcript Delivery & Monitoring",
-      body: "Tap into state-of-the-art IRS transcript tools and PitBullTax Tips that have saved clients millions in taxes, penalties, and interest.",
+      body: "Tap into IRS transcript tools and PitBullTax Tips that help you review taxes, penalties, and interest for each client.",
       points: ["Bulk requests", "Account activity", "Alerts", "Reports"],
     },
   ],
@@ -290,21 +284,21 @@ export const offerings = {
 export const product = {
   eyebrow: "PitBullTax Software Presentation",
   title: "Discover the PitBullTax advantage.",
-  body: "See how the platform guides you from a client's IRS problem to the best settlement, with proven strategies and expert tips along the way.",
+  body: "See how the platform guides you from a client's IRS problem to a resolution plan, with step-by-step tools and expert tips along the way.",
   videoLabel: "Turn up the volume and discover the PitBullTax advantage now!",
   videoCaption: "PitBullTax Software Presentation",
   shots: [
     {
-      src: "/screens/client-questionnaire.webp",
+      src: "/screens/g04-client-questionnaire.webp",
       alt: "PitBullTax Client Questionnaire with sections such as taxpayer, dependents, IRS liability, employment and banking",
-      title: "Client intake and analysis",
-      caption: "Keep case information organized for review.",
+      title: "Client intake",
+      caption: "Gather client facts with a guided questionnaire.",
     },
     {
-      src: "/screens/irs-form-preview.webp",
+      src: "/screens/g06-irs-form-preview.webp",
       alt: "PitBullTax Form Preview of Form 433-F Collection Information Statement filled from the case",
-      title: "Forms and case progress",
-      caption: "Carry the work through the next steps.",
+      title: "IRS form preparation",
+      caption: "Prepare IRS forms from the case information.",
     },
   ],
 };
@@ -315,7 +309,7 @@ export const software = {
   rows: [
     {
       title: "Even if you're new to IRS resolution... PitBullTax has your back.",
-      body: "We all start somewhere – that's why PitBullTax was built to empower tax professionals with the step-by-step tools and insider tips needed to secure optimal client outcomes.",
+      body: "We all start somewhere – that's why PitBullTax was built to empower tax professionals with the step-by-step tools and insider tips needed to work each case with confidence.",
       points: [
         "Step-by-step workflow from new client to diagnosed case",
         "Status on every step, so the next task is always clear",
@@ -323,9 +317,9 @@ export const software = {
       ],
       image: {
         label: "Step-by-Step Workflow",
-        src: "/screens/step-by-step-workflow.webp",
-        width: 966,
-        height: 579,
+        src: "/screens/g09-step-by-step-workflow.webp",
+        width: 1600,
+        height: 959,
         alt: "PitBullTax Step-by-Step Workflow with case steps such as creating a client, client questionnaire, power of attorney and IRS transcripts, each with a status",
       },
     },
@@ -339,9 +333,9 @@ export const software = {
       ],
       image: {
         label: "Resolution Evaluation",
-        src: "/screens/resolution-evaluation.webp",
-        width: 966,
-        height: 700,
+        src: "/screens/g05-resolution-evaluation.webp",
+        width: 1600,
+        height: 1159,
         alt: "PitBullTax Resolution Evaluation comparing Offer in Compromise, Installment Agreement and Currently Not Collectible status for a sample client",
       },
     },
@@ -424,13 +418,13 @@ export const steps = {
       title: "Get your personalized walkthrough",
       short: "Walkthrough",
       body: "Once you qualify, our team walks you through the tools most relevant to your cases, from client intake to IRS forms.",
-      image: "/screens/step-by-step-workflow.webp",
+      image: "/screens/g09-step-by-step-workflow.webp",
       alt: "PitBullTax Step-by-Step Workflow screen showing case steps, including the client questionnaire, power of attorney and IRS transcripts, with their status",
       video: false,
     },
     {
       n: "3",
-      title: "Join the PitBull Tax Experts Program",
+      title: "Join the PitBullTax Experts Program",
       short: "Join",
       body: "Get started with training, video tutorials, and a community of tax professionals who build winning IRS strategies together.",
       image: "/steps/step-3-video-tutorials.webp",
@@ -447,7 +441,7 @@ export const application = {
   of: "of",
   continue: "Continue",
   back: "Back",
-  secure: "100% Secure - Privacy Guaranteed",
+  secure: "Your information is kept private",
   step2Title: "Fill In Your Details Below to Begin Your Transformation…",
   step2Helper:
     "Yes, I'm ready to fast-track my success with the PitBullTax Experts Program – the gateway to an efficient, profitable tax practice.",
@@ -483,7 +477,7 @@ export const application = {
 export const walkthrough = {
   // From the live offer2 application page.
   eyebrow: "You're one step closer to becoming the trusted IRS expert",
-  title: "The PitBull Tax Experts Program!",
+  title: "The PitBullTax Experts Program!",
   body: "Submit your details now to find out if you qualify for the exclusive PitBullTax Experts Program and platform designed for IRS resolution mastery.",
   agenda: [
     { time: "01", title: "Start with client intake", body: "Gather the information your team needs." },
@@ -607,7 +601,7 @@ export const finalCta = {
   body: "Empower your practice with up-to-date IRS insights, streamlined transcript access, and proven strategies designed for top tax professionals.",
   points: [
     "Gain instant access to IRS transcript tools",
-    "Leverage expert PitBullTax Tips for optimal settlements",
+    "Leverage expert PitBullTax Tips on settlement options",
     "Build a network with leading tax professionals",
   ],
   cta: "Get Qualified & Level Up",

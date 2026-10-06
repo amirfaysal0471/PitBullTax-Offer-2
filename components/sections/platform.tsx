@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Check, FileText, FolderOpen } from "lucide-react";
+import { Check } from "lucide-react";
 
 import { cn } from "cn";
 import { platform, offerings } from "@/lib/content";
@@ -37,43 +37,6 @@ export function Platform() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div className="overflow-hidden rounded-t-xl border border-b-0 border-line bg-white">
-                  {"files" in card && card.files ? (
-                    <>
-                      <p className="flex items-center justify-between border-l-4 border-[#f0506e] bg-[#d9ecfc] py-2 pr-3 pl-14 text-[0.75rem] font-bold tracking-[0.02em] text-[#0b1220] uppercase">
-                        <span className="flex items-center gap-1.5">
-                          <FolderOpen className="size-3.5" />
-                          {card.files.title}
-                        </span>
-                        <span className="font-semibold tracking-normal normal-case text-text-3">
-                          {card.files.client}
-                        </span>
-                      </p>
-                      <div className="aspect-[16/10] px-3 py-1.5 text-text">
-                        <ul className="grid">
-                          {card.files.items.map((file) => (
-                            <li
-                              key={file.name}
-                              className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 border-b border-line/70 py-1.5 text-[0.75rem] last:border-0"
-                            >
-                              <FileText className="size-3.5 text-red" />
-                              <span className="truncate">
-                                <span className="font-semibold">
-                                  {file.name}
-                                </span>
-                                <span className="text-text-3">
-                                  {" "}
-                                  · {file.folder}
-                                </span>
-                              </span>
-                              <span className="text-text-3 tabular-nums">
-                                {file.date}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </>
-                  ) : null}
                   {"image" in card && card.image ? (
                     <>
                       <p className="border-l-4 border-[#f0506e] bg-[#d9ecfc] py-2 pr-3 pl-14 text-[0.75rem] font-bold tracking-[0.02em] text-[#0b1220] uppercase">
@@ -85,7 +48,7 @@ export function Platform() {
                           alt={card.image.alt}
                           fill
                           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 400px"
-                          className="object-cover object-left-top"
+                          className="object-contain object-top"
                         />
                       </div>
                     </>

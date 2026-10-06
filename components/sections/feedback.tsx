@@ -15,28 +15,28 @@ const stages = [
   {
     icon: ClipboardList,
     screen: {
-      src: "/screens/client-questionnaire.webp",
-      width: 966,
-      height: 579,
+      src: "/screens/g04-client-questionnaire.webp",
+      width: 1600,
+      height: 959,
       alt: "PitBullTax Client Questionnaire with sections such as taxpayer, dependents, IRS liability, employment and banking",
     },
   },
   {
     icon: FileSearch,
     screen: {
-      src: "/screens/resolution-evaluation.webp",
-      width: 966,
-      height: 700,
+      src: "/screens/g05-resolution-evaluation.webp",
+      width: 1600,
+      height: 1159,
       alt: "PitBullTax Resolution Evaluation comparing resolution options for a sample client",
     },
   },
   {
     icon: FileCheck2,
     screen: {
-      src: "/screens/irs-form-preview.webp",
-      width: 966,
-      height: 648,
-      alt: "PitBullTax Form Preview of Form 433-F Collection Information Statement filled from the case",
+      src: "/screens/g07-form-433-a-entry.webp",
+      width: 1175,
+      height: 850,
+      alt: "PitBullTax Form 433-A entry screen with personal information and address fields, and Forms In Use in the sidebar",
     },
   },
 ];

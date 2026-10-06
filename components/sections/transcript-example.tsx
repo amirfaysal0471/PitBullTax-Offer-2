@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { cn } from "cn";
 import { transcriptExample, type EventTone } from "@/lib/content";
@@ -10,7 +10,6 @@ const toneDot: Record<EventTone, string> = {
   event: "bg-slate-400",
   review: "bg-amber-400",
   question: "bg-sky-400",
-  next: "bg-red",
 };
 
 const toneLabel = Object.fromEntries(
@@ -79,13 +78,9 @@ export function TranscriptExample() {
             <div className="flex items-center justify-between gap-4">
               <p className="font-mono text-[2rem] leading-none font-medium text-white">{event.code}</p>
               <span
-                className={cn(
-                  "mono-xs inline-flex items-center gap-1.5 rounded-full px-3 py-2 uppercase",
-                  event.tone === "next" ? "bg-red text-white" : "bg-white/10 text-on-dark-2",
-                )}
+                className="mono-xs inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-2 text-on-dark-2 uppercase"
               >
                 {toneLabel[event.tone]}
-                {event.tone === "next" ? <ArrowRight className="size-3.5" /> : null}
               </span>
             </div>
 

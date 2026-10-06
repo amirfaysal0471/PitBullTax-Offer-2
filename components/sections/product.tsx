@@ -22,13 +22,13 @@ export function Product() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
             {product.shots.map((shot, i) => (
               <figure key={shot.src} className="overflow-hidden rounded-2xl border border-line bg-white">
-                <div className="relative aspect-[16/9] border-b border-line bg-white">
+                <div className="relative aspect-[4/3] border-b border-line bg-white">
                   <Image
                     src={shot.src}
                     alt={shot.alt}
                     fill
                     sizes="(max-width: 1024px) 46vw, 380px"
-                    className="object-cover object-left-top"
+                    className="object-contain object-top"
                   />
                 </div>
                 <figcaption className="flex items-start gap-3 p-4">
