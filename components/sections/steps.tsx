@@ -11,7 +11,11 @@ import { headerCta, steps } from "@/lib/content";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
 // Label shown in the browser frame for each step's screen.
-const screenLabels = ["PitBullTax Software Presentation", "Step-by-Step Workflow", "Video Tutorials"];
+const screenLabels = [
+  "PitBullTax Software Presentation",
+  "Step-by-Step Workflow",
+  "Video Tutorials",
+];
 
 // Each step stays on screen this long before the next one plays.
 const STEP_MS = 5000;
@@ -55,11 +59,7 @@ export function Steps() {
       </div>
       <div className="relative flex aspect-[3/2] items-center justify-center bg-white">
         {step.video ? (
-          <Video
-            compact
-            className="w-full rounded-none bg-white"
-            poster={{ src: step.image, alt: step.alt }}
-          />
+          <Video compact fill poster={{ src: step.image, alt: step.alt }} />
         ) : (
           <Image
             key={step.image}
@@ -67,7 +67,7 @@ export function Steps() {
             alt={step.alt}
             fill
             sizes="(max-width: 1024px) 92vw, 680px"
-            className="object-contain object-top"
+            className="object-cover object-top"
           />
         )}
       </div>

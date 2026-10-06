@@ -28,7 +28,7 @@ export function Product() {
                     alt={shot.alt}
                     fill
                     sizes="(max-width: 1024px) 46vw, 380px"
-                    className="object-contain object-top"
+                    className="object-cover object-left-top"
                   />
                 </div>
                 <figcaption className="flex items-start gap-3 p-4">
