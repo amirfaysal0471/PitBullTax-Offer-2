@@ -93,16 +93,17 @@ export function Feedback() {
                       {item.body}
                     </p>
                   </div>
-                  {/* The whole screen at its own ratio, pinned to the card bottom: no crop, no white space. */}
+                  {/* Same-size frame in every card; the screen fills it from the top. */}
                   <div className="mt-auto px-3 pb-3">
-                    <Image
-                      src={stage.screen.src}
-                      alt={stage.screen.alt}
-                      width={stage.screen.width}
-                      height={stage.screen.height}
-                      sizes="(max-width: 768px) 92vw, 380px"
-                      className="h-auto w-full rounded-lg border border-line-dark"
-                    />
+                    <div className="relative aspect-[966/700] overflow-hidden rounded-lg border border-line-dark bg-white">
+                      <Image
+                        src={stage.screen.src}
+                        alt={stage.screen.alt}
+                        fill
+                        sizes="(max-width: 768px) 92vw, 380px"
+                        className="object-cover object-left-top"
+                      />
+                    </div>
                   </div>
                 </article>
 

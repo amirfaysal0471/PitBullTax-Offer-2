@@ -14,12 +14,13 @@ export function Product() {
           <p className="mx-auto mt-6 max-w-xl text-[1.0625rem] leading-[1.6] text-text-2">{product.body}</p>
         </div>
 
-        <div className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
-          <div className="rounded-2xl border border-line bg-white p-2 shadow-[0_30px_70px_-30px_rgba(11,18,32,.4)] lg:self-start">
+        {/* Video on top, the two screens side by side below it, so nothing leaves an empty block. */}
+        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-[minmax(0,1fr)] gap-5">
+          <div className="rounded-2xl border border-line bg-white p-2 shadow-[0_30px_70px_-30px_rgba(11,18,32,.4)]">
             <Video label={product.videoLabel} caption={product.videoCaption} />
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid gap-5 sm:grid-cols-2">
             {product.shots.map((shot, i) => (
               <figure key={shot.src} className="overflow-hidden rounded-2xl border border-line bg-white">
                 <div className="relative aspect-[4/3] border-b border-line bg-white">
@@ -27,7 +28,7 @@ export function Product() {
                     src={shot.src}
                     alt={shot.alt}
                     fill
-                    sizes="(max-width: 1024px) 46vw, 380px"
+                    sizes="(max-width: 640px) 92vw, 440px"
                     className="object-cover object-left-top"
                   />
                 </div>
