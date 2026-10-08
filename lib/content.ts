@@ -44,6 +44,7 @@ export const hero = {
   primary: "Apply Now To See If You Qualify",
   secondary: "Explore the case workflow",
   visual: {
+    caption: "PitBullTax Software · Step-by-Step Workflow",
     src: "/screens/g09-step-by-step-workflow.webp",
     width: 1600,
     height: 959,
